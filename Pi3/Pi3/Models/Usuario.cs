@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
 
 namespace Pi3.Models
 {
@@ -12,7 +14,9 @@ namespace Pi3.Models
     {
 
         [Column("id")]
-        private Guid Id {  get; set; }
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        private string Id {  get; set; }
 
         [Column("nome")]
         private string Nome { get; set; }

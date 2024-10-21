@@ -1,18 +1,27 @@
-﻿namespace Pi3.Models
+﻿using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Pi3.Models
 {
+    [Table("Avaliacao")]
     public class Avaliacao
     {
-        public Guid Id { get; set; }
 
-        public string Notas { get; set; }
+        [Column("id")]
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        private string Id { get; set; }
 
-        public List<string> Comentarios { get; set; } = new List<string>();
+        [Column("notas")]
+        private string Nota { get; set; }
 
-        public Boolean Curtida { get; set; }
+        [Column("comentario")]
+        private string Comentario { get; set; }
 
-        public void Comentario(string comentario)
-        {
-            Comentarios.Add(comentario);
-        }
+        [Column("curtida")]
+        private bool Curtida { get; set; }
+
+        
     }
 }

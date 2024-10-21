@@ -48,5 +48,13 @@ namespace Pi3.Models
                 return _database.GetCollection<Avaliacao>("Avaliacao");
             }
         }
+
+        public IMongoCollection<Filme> Filme
+        {
+            get
+            {
+                return _database.GetCollection<Filme>("Filme");
+            }
+        }
     }
 }
