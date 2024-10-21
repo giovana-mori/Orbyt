@@ -1,0 +1,106 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\models\\avaliacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|solutionrelative:pi3\\models\\avaliacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|solutionrelative:pi3\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\models\\contextmongodb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|solutionrelative:pi3\\models\\contextmongodb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|solutionrelative:pi3\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|solutionrelative:pi3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Avaliacao.cs",
+              "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Models\\Avaliacao.cs",
+              "RelativeDocumentMoniker": "Pi3\\Models\\Avaliacao.cs",
+              "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Models\\Avaliacao.cs*",
+              "RelativeToolTip": "Pi3\\Models\\Avaliacao.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T12:15:55.67Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ContextMongodb.cs",
+              "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Models\\ContextMongodb.cs",
+              "RelativeDocumentMoniker": "Pi3\\Models\\ContextMongodb.cs",
+              "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Models\\ContextMongodb.cs",
+              "RelativeToolTip": "Pi3\\Models\\ContextMongodb.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAAC8AAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T11:42:20.67Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\appsettings.json",
+              "RelativeDocumentMoniker": "Pi3\\appsettings.json",
+              "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\appsettings.json",
+              "RelativeToolTip": "Pi3\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-21T11:41:18.698Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Program.cs",
+              "RelativeDocumentMoniker": "Pi3\\Program.cs",
+              "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Program.cs",
+              "RelativeToolTip": "Pi3\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-21T11:40:37.891Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "Pi3\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Models\\Usuario.cs",
+              "RelativeToolTip": "Pi3\\Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T11:48:58.836Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

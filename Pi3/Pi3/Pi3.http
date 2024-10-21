@@ -1,0 +1,6 @@
+@Pi3_HostAddress = http://localhost:5113
+
+GET {{Pi3_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
