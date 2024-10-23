@@ -4,22 +4,19 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Pi3.Models
 {
-    [Table("Avaliacao")]
     public class Avaliacao
     {
 
-        [Column("id")]
         [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
+        [BsonElement("id"), BsonRepresentation(BsonType.ObjectId)]
         private string Id { get; set; }
 
-        [Column("notas")]
+        [BsonElement("nota"), BsonRepresentation(BsonType.String)]
         private string Nota { get; set; }
 
-        [Column("comentario")]
+        [BsonElement("comentario"), BsonRepresentation(BsonType.String)]
         private string Comentario { get; set; }
 
-        [Column("curtida")]
         private bool Curtida { get; set; }
 
         

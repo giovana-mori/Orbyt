@@ -9,26 +9,23 @@ using MongoDB.Bson;
 
 namespace Pi3.Models
 {
-    [Table("Usuario")]
     public class Usuario
     {
-
-        [Column("id")]
         [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        private string Id {  get; set; }
+        [BsonElement("id"), BsonRepresentation(BsonType.ObjectId)]
+        public string? Id { get; set; }
 
-        [Column("nome")]
-        private string Nome { get; set; }
+        [BsonElement("nome"), BsonRepresentation(BsonType.String)]
+        public string Nome { get; set; }
 
-        [Column("email")]
-        private string Email { get; set; }
+        [BsonElement("email"), BsonRepresentation(BsonType.String)]
+        public string Email { get; set; }
 
-        [Column("password")]
-        private string Password { get; set; }
+        [BsonElement("password"),  BsonRepresentation(BsonType.String)]
+        public string Password { get; set; }
 
-        [Column("celular")]
-        private string Celular { get; set; }
-
+        [BsonElement("celular"), BsonRepresentation(BsonType.String)]
+        public string Celular { get; set; }
     }
+
 }

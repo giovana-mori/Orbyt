@@ -4,16 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Pi3.Models
 {
-    [Table("Filmes")]
     public class Filme
     {
-
-        [Column("id")]
         [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
+        [BsonElement("id"), BsonRepresentation(BsonType.ObjectId)]
         private string Id { get; set; }
 
-        [Column("nome")]
         private string Nome { get; set; }
 
         private string Data { get; set; }
