@@ -10,8 +10,8 @@ namespace Pi3.Repositories
 
         public void Post(Usuario usuario);
 
-        public Task<Usuario> Put(string id, Usuario usuario);
+        public void Put(string id, Usuario usuario);
 
-        public Task<Usuario> Delete(string id);
+        public void Delete(string id);
     }
 }

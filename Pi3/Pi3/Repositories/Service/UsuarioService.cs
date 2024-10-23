@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using MongoDB.Driver;
 using Pi3.Models;
 
 namespace Pi3.Repositories.Service
@@ -32,18 +33,17 @@ namespace Pi3.Repositories.Service
         {
             _conxtext.Usuario.InsertOneAsync(usuario);
         }
-        public async Task<Usuario> Put(string id, Usuario usuario)
+        public void Put(string id, Usuario usuario)
         {
-
             var filter = Builders<Usuario>.Filter.Eq(x => x.Id, usuario.Id);
-
-            await _conxtext.Usuario.ReplaceOneAsync(filter, usuario);
-
+            _conxtext.Usuario.ReplaceOneAsync(filter, usuario);
         }
 
-        public async Task<Usuario> Delete(string id)
+        public void Delete(string id)
         {
-            throw new NotImplementedException();
+            var filter = Builders<Usuario>.Filter.Eq(x => x.Id, id);
+
+            _conxtext.Usuario.DeleteOneAsync(filter);
         }
     }
 }

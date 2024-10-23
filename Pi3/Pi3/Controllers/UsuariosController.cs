@@ -50,22 +50,28 @@ namespace Pi3.Controllers
         public ActionResult<Usuario> Post([FromBody] Usuario usuario)
         {
             _usuarioService.Post(usuario);
-
-            return StatusCode(StatusCodes.Status201Created);
+            
+            return StatusCode(StatusCodes.Status201Created, null);
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<Usuario>> Put(string id, [FromBody] Usuario usuario)
+        public ActionResult<Usuario> Put(string id, [FromBody] Usuario usuario)
         {
+            if(id != usuario.Id)
+            {
+                return BadRequest();
+            }
+
+            _usuarioService.Put(id, usuario);
+
             return Ok();
         }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult<Usuario>> Delete(string id)
         {
-            var filter = Builders<Usuario>.Filter.Eq(x => x.Id, id);
+            _usuarioService.Delete(id);
 
-            await _conxtext.Usuario.DeleteOneAsync(filter);
             return Ok();
         }
     }
