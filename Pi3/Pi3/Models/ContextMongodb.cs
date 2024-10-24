@@ -1,4 +1,5 @@
 ﻿using MongoDB.Driver;
+using MongoDB.Driver.GridFS;
 
 namespace Pi3.Models
 {
@@ -8,6 +9,8 @@ namespace Pi3.Models
         public static string DatabaseName { get; set; }
         public static bool IsSSL { get; set; }
         private IMongoDatabase _database { get; }
+
+        public GridFSBucket GridFS { get; }
 
         public ContextMongodb()
         {
@@ -26,6 +29,8 @@ namespace Pi3.Models
 
                 var mongoCliente = new MongoClient(setting);
                 _database = mongoCliente.GetDatabase(DatabaseName);
+
+                GridFS = new GridFSBucket(_database);
 
             }
             catch (Exception)

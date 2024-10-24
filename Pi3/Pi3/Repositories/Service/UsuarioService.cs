@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.EntityFrameworkCore;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using Pi3.Models;
 
@@ -9,7 +11,7 @@ namespace Pi3.Repositories.Service
         private readonly ContextMongodb _conxtext;
 
         public UsuarioService(ContextMongodb conxtext)
-        {
+        { 
             _conxtext = conxtext;
         }
         public async Task<List<Usuario>> GetAll()
@@ -29,14 +31,32 @@ namespace Pi3.Repositories.Service
         }
 
 
-        public void Post(Usuario usuario)
+        public async Task Post(Usuario usuario, Stream imagemStream, string imagemNome)
         {
-            _conxtext.Usuario.InsertOneAsync(usuario);
+            ObjectId imagemId = await _conxtext.GridFS.UploadFromStreamAsync(imagemNome, imagemStream);
+
+            usuario.ImagemId = imagemId;
+
+            await _conxtext.Usuario.InsertOneAsync(usuario);
         }
-        public void Put(string id, Usuario usuario)
+        public async Task Put(string id, Usuario usuario)
         {
+            var usuarioImagem = _conxtext.Usuario.Find(x=> x.Id == id).FirstOrDefault();
+
+            usuario.ImagemId = usuarioImagem.ImagemId;
+
             var filter = Builders<Usuario>.Filter.Eq(x => x.Id, usuario.Id);
-            _conxtext.Usuario.ReplaceOneAsync(filter, usuario);
+            await _conxtext.Usuario.ReplaceOneAsync(filter, usuario);
+        }
+
+        public async Task PutImage(Usuario usuario, Stream imagemStream, string imagemNome)
+        {
+            ObjectId imagemId = await _conxtext.GridFS.UploadFromStreamAsync(imagemNome, imagemStream);
+
+            usuario.ImagemId = imagemId;
+
+            var filter = Builders<Usuario>.Filter.Eq(x => x.Id, usuario.Id);
+            await _conxtext.Usuario.ReplaceOneAsync(filter, usuario);
         }
 
         public void Delete(string id)
@@ -45,5 +65,7 @@ namespace Pi3.Repositories.Service
 
             _conxtext.Usuario.DeleteOneAsync(filter);
         }
+
+        
     }
 }

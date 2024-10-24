@@ -270,3 +270,4 @@ C:\Users\Arthur\Desktop\FATEC\3S\PI3\Orbyt\Pi3\Pi3\obj\Debug\net8.0\refint\Pi3.d
 C:\Users\Arthur\Desktop\FATEC\3S\PI3\Orbyt\Pi3\Pi3\obj\Debug\net8.0\Pi3.pdb
 C:\Users\Arthur\Desktop\FATEC\3S\PI3\Orbyt\Pi3\Pi3\obj\Debug\net8.0\Pi3.genruntimeconfig.cache
 C:\Users\Arthur\Desktop\FATEC\3S\PI3\Orbyt\Pi3\Pi3\obj\Debug\net8.0\ref\Pi3.dll
+C:\Users\Arthur\Desktop\FATEC\3S\PI3\Orbyt\Pi3\Pi3\bin\Debug\net8.0\MongoDB.Driver.GridFS.dll

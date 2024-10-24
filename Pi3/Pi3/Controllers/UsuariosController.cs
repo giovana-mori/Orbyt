@@ -47,22 +47,40 @@ namespace Pi3.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Usuario> Post([FromBody] Usuario usuario)
+        public async Task<ActionResult<Usuario>> Post([FromForm] Usuario usuario, [FromForm] IFormFile imagem)
         {
-            _usuarioService.Post(usuario);
-            
-            return StatusCode(StatusCodes.Status201Created, null);
+            if (imagem == null || imagem.Length == 0)
+            {
+                return BadRequest("Imagem não enviada.");
+            }
+
+            using (var stream = imagem.OpenReadStream()) 
+            {
+                await _usuarioService.Post(usuario, stream, imagem.FileName);
+
+                return StatusCode(StatusCodes.Status201Created, null);
+            }
         }
 
         [HttpPut("{id}")]
-        public ActionResult<Usuario> Put(string id, [FromBody] Usuario usuario)
+        public async Task<ActionResult<Usuario>> Put(string id, [FromForm] Usuario usuario, [FromForm] IFormFile? imagem)
         {
             if(id != usuario.Id)
             {
                 return BadRequest();
             }
 
-            _usuarioService.Put(id, usuario);
+            if (imagem != null && imagem.Length > 0)
+            {
+                using(var stream = imagem.OpenReadStream())
+                {
+                    await _usuarioService.PutImage(usuario, stream, imagem.FileName);
+
+                    return Ok();
+                }
+            }
+
+            await _usuarioService.Put(id, usuario);
 
             return Ok();
         }

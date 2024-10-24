@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "q3lnaWrQF5g=",
+  "dgSpecHash": "sJlibCgXJ7E=",
   "success": true,
   "projectFilePath": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Pi3.csproj",
   "expectedPackageFiles": [
@@ -122,6 +122,7 @@
     "C:\\Users\\Arthur\\.nuget\\packages\\mongodb.bson\\2.30.0\\mongodb.bson.2.30.0.nupkg.sha512",
     "C:\\Users\\Arthur\\.nuget\\packages\\mongodb.driver\\2.30.0\\mongodb.driver.2.30.0.nupkg.sha512",
     "C:\\Users\\Arthur\\.nuget\\packages\\mongodb.driver.core\\2.30.0\\mongodb.driver.core.2.30.0.nupkg.sha512",
+    "C:\\Users\\Arthur\\.nuget\\packages\\mongodb.driver.gridfs\\2.30.0\\mongodb.driver.gridfs.2.30.0.nupkg.sha512",
     "C:\\Users\\Arthur\\.nuget\\packages\\mongodb.libmongocrypt\\1.12.0\\mongodb.libmongocrypt.1.12.0.nupkg.sha512",
     "C:\\Users\\Arthur\\.nuget\\packages\\mono.texttemplating\\2.3.1\\mono.texttemplating.2.3.1.nupkg.sha512",
     "C:\\Users\\Arthur\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",

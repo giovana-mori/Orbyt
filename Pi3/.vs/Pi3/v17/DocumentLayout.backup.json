@@ -13,6 +13,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\repositories\\iusuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|solutionrelative:pi3\\repositories\\iusuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\models\\contextmongodb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|solutionrelative:pi3\\models\\contextmongodb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -36,9 +40,22 @@
               "RelativeDocumentMoniker": "Pi3\\Repositories\\IUsuarioService.cs",
               "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Repositories\\IUsuarioService.cs",
               "RelativeToolTip": "Pi3\\Repositories\\IUsuarioService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T15:17:34.849Z",
+              "WhenOpened": "2024-10-24T01:18:18.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ContextMongodb.cs",
+              "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Models\\ContextMongodb.cs",
+              "RelativeDocumentMoniker": "Pi3\\Models\\ContextMongodb.cs",
+              "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Models\\ContextMongodb.cs",
+              "RelativeToolTip": "Pi3\\Models\\ContextMongodb.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T00:16:34.036Z",
               "EditorCaption": ""
             },
             {
@@ -49,7 +66,7 @@
               "RelativeDocumentMoniker": "Pi3\\Repositories\\Service\\UsuarioService.cs",
               "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Repositories\\Service\\UsuarioService.cs",
               "RelativeToolTip": "Pi3\\Repositories\\Service\\UsuarioService.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAASwCwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAAAjwDsAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-23T11:44:41.385Z",
               "EditorCaption": ""
@@ -60,9 +77,9 @@
               "Title": "UsuariosController.cs",
               "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Controllers\\UsuariosController.cs",
               "RelativeDocumentMoniker": "Pi3\\Controllers\\UsuariosController.cs",
-              "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Controllers\\UsuariosController.cs",
-              "RelativeToolTip": "Pi3\\Controllers\\UsuariosController.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAqwEoAAAAYAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Controllers\\UsuariosController.cs*",
+              "RelativeToolTip": "Pi3\\Controllers\\UsuariosController.cs*",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAuwEgAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-22T23:07:55.686Z",
               "EditorCaption": ""
