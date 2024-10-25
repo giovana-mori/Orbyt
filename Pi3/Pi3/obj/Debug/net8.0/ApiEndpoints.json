@@ -1,5 +1,26 @@
 [
   {
+    "ContainingType": "Pi3.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Pi3.Controllers.UsuariosController",
     "Method": "Get",
     "RelativePath": "api/Usuarios",
@@ -49,6 +70,11 @@
       },
       {
         "Name": "Celular",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Role",
         "Type": "System.String",
         "IsRequired": false
       },
@@ -165,6 +191,11 @@
         "IsRequired": false
       },
       {
+        "Name": "Role",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "ImagemId",
         "Type": "System.String",
         "IsRequired": false
@@ -237,26 +268,5 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "Pi3.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Pi3.WeatherForecast, Pi3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "GetWeatherForecast"
   }
 ]

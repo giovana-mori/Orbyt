@@ -8,6 +8,8 @@ namespace Pi3.Repositories
 
         public Task<Usuario> GetById(string id);
 
+        public Task<Usuario> GetByEmail(string email);
+
         public Task Post(Usuario usuario, Stream imagemStream, string imagemNome);
 
         public Task Put(string id, Usuario usuario);

@@ -27,6 +27,8 @@ namespace Pi3.Models
         [BsonElement("celular"), BsonRepresentation(BsonType.String)]
         public string Celular { get; set; }
 
+        public string Role { get; set; } = "User";
+
         public ObjectId? ImagemId { get; set; }
     }
 

@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|solutionrelative:pi3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|solutionrelative:pi3\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|solutionrelative:pi3\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\repositories\\service\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|solutionrelative:pi3\\repositories\\service\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|solutionrelative:pi3\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\repositories\\iusuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|solutionrelative:pi3\\repositories\\iusuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\security\\rsakeyutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|solutionrelative:pi3\\security\\rsakeyutils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\models\\contextmongodb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|solutionrelative:pi3\\models\\contextmongodb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\pi3.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|solutionrelative:pi3\\pi3.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,52 +42,78 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IUsuarioService.cs",
-              "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Repositories\\IUsuarioService.cs",
-              "RelativeDocumentMoniker": "Pi3\\Repositories\\IUsuarioService.cs",
-              "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Repositories\\IUsuarioService.cs",
-              "RelativeToolTip": "Pi3\\Repositories\\IUsuarioService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T01:18:18.372Z",
+              "DocumentIndex": 5,
+              "Title": "Pi3",
+              "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Pi3.csproj",
+              "RelativeDocumentMoniker": "Pi3\\Pi3.csproj",
+              "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Pi3.csproj",
+              "RelativeToolTip": "Pi3\\Pi3.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-25T13:43:27.43Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ContextMongodb.cs",
-              "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Models\\ContextMongodb.cs",
-              "RelativeDocumentMoniker": "Pi3\\Models\\ContextMongodb.cs",
-              "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Models\\ContextMongodb.cs",
-              "RelativeToolTip": "Pi3\\Models\\ContextMongodb.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAA1AAAAAAAAAA==",
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\appsettings.json",
+              "RelativeDocumentMoniker": "Pi3\\appsettings.json",
+              "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\appsettings.json",
+              "RelativeToolTip": "Pi3\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-25T12:50:25.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RsaKeyUtils.cs",
+              "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Security\\RsaKeyUtils.cs",
+              "RelativeDocumentMoniker": "Pi3\\Security\\RsaKeyUtils.cs",
+              "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Security\\RsaKeyUtils.cs",
+              "RelativeToolTip": "Pi3\\Security\\RsaKeyUtils.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-24T00:16:34.036Z",
+              "WhenOpened": "2024-10-25T11:58:53.622Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UsuarioService.cs",
-              "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Repositories\\Service\\UsuarioService.cs",
-              "RelativeDocumentMoniker": "Pi3\\Repositories\\Service\\UsuarioService.cs",
-              "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Repositories\\Service\\UsuarioService.cs",
-              "RelativeToolTip": "Pi3\\Repositories\\Service\\UsuarioService.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAjwDEAAAAIAAAAAAAAAA==",
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Pi3\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Pi3\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAmwEIAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T11:44:41.385Z",
+              "WhenOpened": "2024-10-24T13:49:05.826Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Program.cs",
+              "RelativeDocumentMoniker": "Pi3\\Program.cs",
+              "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Program.cs",
+              "RelativeToolTip": "Pi3\\Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAqwBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T12:48:19.189Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "UsuariosController.cs",
               "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Controllers\\UsuariosController.cs",
               "RelativeDocumentMoniker": "Pi3\\Controllers\\UsuariosController.cs",
               "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Controllers\\UsuariosController.cs",
               "RelativeToolTip": "Pi3\\Controllers\\UsuariosController.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAuwEIAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-22T23:07:55.686Z",
               "EditorCaption": ""

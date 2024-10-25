@@ -14,6 +14,14 @@ namespace Pi3.Repositories.Service
         { 
             _conxtext = conxtext;
         }
+
+        public async Task<Usuario> GetByEmail(string email)
+        {
+            var usuario = await _conxtext.Usuario.Find(x=> x.Email == email).FirstOrDefaultAsync();
+
+            return usuario;
+        }
+
         public async Task<List<Usuario>> GetAll()
         {
             List<Usuario> usuario = await _conxtext.Usuario.Find(u => true).ToListAsync();
