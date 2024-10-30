@@ -17,7 +17,7 @@ namespace Pi3.Repositories.Service
 
         public async Task<Usuario> GetByEmail(string email)
         {
-            var usuario = await _conxtext.Usuario.Find(x=> x.Email == email).FirstOrDefaultAsync();
+            Usuario usuario = await _conxtext.Usuario.Find(x=> x.Email == email).FirstOrDefaultAsync();
 
             return usuario;
         }
@@ -38,14 +38,15 @@ namespace Pi3.Repositories.Service
             return usuario;
         }
 
-
-        public async Task Post(Usuario usuario, Stream imagemStream, string imagemNome)
+        public async Task<Usuario> Post(Usuario usuario, Stream imagemStream, string imagemNome)
         {
             ObjectId imagemId = await _conxtext.GridFS.UploadFromStreamAsync(imagemNome, imagemStream);
 
             usuario.ImagemId = imagemId;
-
             await _conxtext.Usuario.InsertOneAsync(usuario);
+
+            return usuario;
+
         }
         public async Task Put(string id, Usuario usuario)
         {
@@ -67,6 +68,7 @@ namespace Pi3.Repositories.Service
             await _conxtext.Usuario.ReplaceOneAsync(filter, usuario);
         }
 
+
         public void Delete(string id)
         {
             var filter = Builders<Usuario>.Filter.Eq(x => x.Id, id);
@@ -74,6 +76,5 @@ namespace Pi3.Repositories.Service
             _conxtext.Usuario.DeleteOneAsync(filter);
         }
 
-        
     }
 }

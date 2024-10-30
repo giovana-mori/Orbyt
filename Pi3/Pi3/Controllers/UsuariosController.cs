@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using MongoDB.Driver;
 using Pi3.Models;
 using Pi3.Repositories;
-using Pi3.Repositories.Service;
 
 
 namespace Pi3.Controllers
@@ -48,24 +45,26 @@ namespace Pi3.Controllers
             return Ok(usuario);
         }
 
-        [HttpPost]
-        public async Task<ActionResult<Usuario>> Post([FromForm] Usuario usuario, [FromForm] IFormFile imagem)
-        {
-            if (imagem == null || imagem.Length == 0)
-            {
-                return BadRequest("Imagem não enviada.");
-            }
+        
+        //SERVE PARA O FABRICIO USAR DE BASE, NAO DELETAR
+        //[HttpPost]
+        //public async Task<ActionResult> Post([FromForm] Usuario usuario, [FromForm] IFormFile imagem)
+        //{
+        //    if (imagem == null || imagem.Length == 0)
+        //    {
+        //        return BadRequest("Imagem não enviada.");
+        //    }
 
-            using (var stream = imagem.OpenReadStream()) 
-            {
-                await _usuarioService.Post(usuario, stream, imagem.FileName);
+        //    using (var stream = imagem.OpenReadStream()) 
+        //    {
+        //        await _usuarioService.Post(usuario, stream, imagem.FileName);
 
-                return StatusCode(StatusCodes.Status201Created, null);
-            }
-        }
+        //        return StatusCode(StatusCodes.Status201Created, null);
+        //    }
+        //}
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<Usuario>> Put(string id, [FromForm] Usuario usuario, [FromForm] IFormFile? imagem)
+        public async Task<ActionResult> Put(string id, [FromForm] Usuario usuario, [FromForm] IFormFile? imagem)
         {
             if(id != usuario.Id)
             {
@@ -88,7 +87,7 @@ namespace Pi3.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Usuario>> Delete(string id)
+        public async Task<ActionResult> Delete(string id)
         {
             _usuarioService.Delete(id);
 

@@ -7,19 +7,42 @@ using Pi3.Models;
 using Pi3.Repositories;
 using Pi3.Repositories.Service;
 using Pi3.Security;
+using System.Security.Cryptography;
+
+using System.Text;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSingleton<ContextMongodb>();
-builder.Services.AddSingleton<IUsuarioService, UsuarioService>();
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+builder.Services.AddScoped<IGenerateToken, TokenService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<ICadastro, CadastroService>();
+
 
 ContextMongodb.ConnectionString = builder.Configuration.GetSection("MongoConnection:ConnectionString").Value;
 ContextMongodb.DatabaseName = builder.Configuration.GetSection("MongoConnection:Database").Value;
 
 ContextMongodb.IsSSL = Convert.ToBoolean(builder.Configuration.GetSection("MongoConnection:IsSSL").Value);
 
+
+var rsaPrivateKey = RsakeyUtils.GetPrivateKey("app.key");
 var rsaPublicKey = RsakeyUtils.GetPublicKey("app.pub");
+
+var validationParameters = new TokenValidationParameters
+{
+    ValidateIssuer = true,
+    ValidateAudience = true,
+    ValidateLifetime = true,
+    RequireExpirationTime = true,
+    ValidateIssuerSigningKey = true,
+    ValidIssuer = "http://localhost:5113",
+    ValidAudience = "http://localhost:5113",
+    IssuerSigningKey = new RsaSecurityKey(rsaPublicKey)
+};
+
+builder.Services.AddSingleton(validationParameters);
 
 builder.Services.AddAuthentication(options =>
 {
@@ -27,19 +50,8 @@ builder.Services.AddAuthentication(options =>
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 }).AddJwtBearer(options =>
 {
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        RequireExpirationTime = true,
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = "http://localhost:5113",
-        ValidAudience = "http://localhost:5113",
-        IssuerSigningKey = new RsaSecurityKey(rsaPublicKey)
-    };
+    options.TokenValidationParameters = validationParameters;
 });
-
 builder.Services.AddAuthentication();
 
 // Add services to the container.

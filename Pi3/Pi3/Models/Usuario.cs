@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
+using Microsoft.AspNetCore.Identity;
 
 namespace Pi3.Models
 {
@@ -26,6 +27,9 @@ namespace Pi3.Models
 
         [BsonElement("celular"), BsonRepresentation(BsonType.String)]
         public string Celular { get; set; }
+
+        [BsonElement("isConfirmed"), BsonRepresentation(BsonType.Boolean)]
+        public bool IsConfirmed { get; set; } = false;
 
         public string Role { get; set; } = "User";
 

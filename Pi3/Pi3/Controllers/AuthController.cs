@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using NuGet.Common;
+using Org.BouncyCastle.Crypto.Parameters;
 using Pi3.Models;
 using Pi3.Repositories;
 using Pi3.Repositories.Service;
@@ -21,13 +22,15 @@ namespace Pi3.Controllers
     {
         private readonly IUsuarioService _usuarioService;
         private readonly IConfiguration _config;
-        private readonly RSA _privateKey;
+        private readonly IGenerateToken _generateToken;
+        private readonly TokenValidationParameters _validationParameters;
 
-        public AuthController(IUsuarioService usuarioService, IConfiguration config)
+        public AuthController(IUsuarioService usuarioService, IConfiguration config, IGenerateToken generateToken, TokenValidationParameters tokenValidationParameters)
         {
             _usuarioService = usuarioService;
-            _privateKey = RsakeyUtils.GetPrivateKey("app.key");
+            _generateToken = generateToken;
             _config = config;
+            _validationParameters = tokenValidationParameters;
         }
 
 
@@ -35,42 +38,23 @@ namespace Pi3.Controllers
         public async Task<ActionResult> Login([FromForm] LoginModel login)
         {
             var usuario = await _usuarioService.GetByEmail(login.Email);
+            var tokenHandler = new JwtSecurityTokenHandler();
 
-            if (usuario == null || usuario.Password != login.Password)
+            if (usuario.IsConfirmed == true)
             {
-                return Unauthorized();
+                if (usuario == null || usuario.Password != login.Password)
+                {
+                    return Unauthorized();
+                }
+                var expiration = DateTime.UtcNow.AddMinutes(5);
+
+                var token = _generateToken.GenerateToken(usuario, expiration);
+                return Ok(new { Token = token });
             }
 
-            var token = generateToken(usuario);
-            return Ok(new { Token = token });
-
+            return Unauthorized("Confirme email para entrar");
         }
 
-        private string generateToken(Usuario usuario) 
-        {
-            var rsaSecurityKey = new RsaSecurityKey(_privateKey);
-
-            var signingCredentials = new SigningCredentials(rsaSecurityKey, SecurityAlgorithms.RsaSha256);
-
-            var tokenDescription = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new Claim[]
-                {
-                    new Claim(JwtRegisteredClaimNames.Sub, usuario.Email),
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                    new Claim(ClaimTypes.NameIdentifier, usuario.Id),
-                    new Claim(ClaimTypes.Role, usuario.Role)
-                }),
-                IssuedAt = DateTime.UtcNow,
-                Expires = DateTime.UtcNow.AddMinutes(5),
-                Issuer = "http://localhost:5113",
-                Audience = "http://localhost:5113",
-                SigningCredentials = signingCredentials
-            };
-
-            var token = new JwtSecurityTokenHandler().CreateToken(tokenDescription);
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
-        }
+        
     }
 }

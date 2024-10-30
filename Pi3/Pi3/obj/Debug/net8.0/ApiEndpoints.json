@@ -1,49 +1,8 @@
 [
   {
-    "ContainingType": "Pi3.Controllers.AuthController",
-    "Method": "Login",
-    "RelativePath": "api/login",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "Email",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Password",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Pi3.Controllers.UsuariosController",
-    "Method": "Get",
-    "RelativePath": "api/Usuarios",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "Pi3.Models.Usuario",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Pi3.Controllers.UsuariosController",
-    "Method": "Post",
-    "RelativePath": "api/Usuarios",
+    "ContainingType": "Pi3.Controllers.CadastroController",
+    "Method": "Cadastro",
+    "RelativePath": "api/Cadastro",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -71,6 +30,11 @@
       {
         "Name": "Celular",
         "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsConfirmed",
+        "Type": "System.Boolean",
         "IsRequired": false
       },
       {
@@ -114,6 +78,53 @@
         "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Pi3.Controllers.CadastroController",
+    "Method": "ConfirmEmail",
+    "RelativePath": "api/Cadastro/confirm",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Pi3.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Pi3.Controllers.UsuariosController",
+    "Method": "Get",
+    "RelativePath": "api/Usuarios",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": [
       {
         "Type": "Pi3.Models.Usuario",
@@ -191,6 +202,11 @@
         "IsRequired": false
       },
       {
+        "Name": "IsConfirmed",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
         "Name": "Role",
         "Type": "System.String",
         "IsRequired": false
@@ -231,17 +247,7 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Pi3.Models.Usuario",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Pi3.Controllers.UsuariosController",
@@ -257,16 +263,6 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Pi3.Models.Usuario",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   }
 ]
