@@ -25,26 +25,12 @@ namespace Pi3.Repositories.Service
             _contextMongodb = contextMongodb;
             _generateToken = generateToken;
         }
-        //public async Task EmailSender(string email, string subject, string message)
-        //{
-        //    var confirm = new MimeMessage();
-        //    confirm.From.Add(new MailboxAddress("Arthur", _configuration["Mailgun:SenderEmail"]));
-        //    confirm.To.Add(new MailboxAddress("", email));
-        //    confirm.Subject = subject;
-        //    confirm.Body = new TextPart("html") { Text = message };
-
-        //    using var smtp = new SmtpClient();
-        //    await smtp.ConnectAsync("smtp.mailgun.org", 587, false);
-        //    await smtp.AuthenticateAsync("api", _configuration["Mailgun:ApiKey"]);
-        //    await smtp.SendAsync(confirm);
-        //    await smtp.DisconnectAsync(true);
-        //}
 
         public async Task<RestResponse> EmailSender(string email, string message)
         {
 
-            var domain = "sandbox6a02e476256a45d590116309ffcd6be7.mailgun.org";
-            var ApiKey = "a374eaea6732d2892ab17eecb1d3f595-72e4a3d5-1f6f514d";
+            string domain = null;
+            string ApiKey = null; //pedi para mim negocio email
 
             var options = new RestClientOptions($"https://api.mailgun.net/v3")
             {
@@ -55,7 +41,7 @@ namespace Pi3.Repositories.Service
 
             var request = new RestRequest($"{domain}/messages", RestSharp.Method.Post);
             request.AddParameter("domain", domain, ParameterType.UrlSegment);
-            request.AddParameter("from", "Teste <mailgun@sandbox6a02e476256a45d590116309ffcd6be7.mailgun.org>"); // Remetente autorizado no Mailgun
+            request.AddParameter("from", "Teste "); //pedir para mim para mandar os negocio do email
             request.AddParameter("to", email); 
             request.AddParameter("subject", "Confirmação de Cadastro");
 

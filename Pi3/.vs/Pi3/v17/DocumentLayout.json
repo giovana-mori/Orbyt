@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\repositories\\service\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|solutionrelative:pi3\\repositories\\service\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|solutionrelative:pi3\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\repositories\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|solutionrelative:pi3\\repositories\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\controllers\\cadastrocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|solutionrelative:pi3\\controllers\\cadastrocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|solutionrelative:pi3\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\repositories\\service\\cadastroservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -13,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\repositories\\service\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|solutionrelative:pi3\\repositories\\service\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|c:\\users\\arthur\\desktop\\fatec\\3s\\pi3\\orbyt\\pi3\\pi3\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{683FD32D-8729-44E7-A7E5-0EDF0B3CBB8F}|Pi3\\Pi3.csproj|solutionrelative:pi3\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,8 +38,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\appsettings.json",
+              "RelativeDocumentMoniker": "Pi3\\appsettings.json",
+              "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\appsettings.json",
+              "RelativeToolTip": "Pi3\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-30T15:24:39.802Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Repositories\\Service\\EmailService.cs",
+              "RelativeDocumentMoniker": "Pi3\\Repositories\\Service\\EmailService.cs",
+              "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Repositories\\Service\\EmailService.cs",
+              "RelativeToolTip": "Pi3\\Repositories\\Service\\EmailService.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwCAAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T15:24:22.402Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IEmailService.cs",
+              "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Repositories\\IEmailService.cs",
+              "RelativeDocumentMoniker": "Pi3\\Repositories\\IEmailService.cs",
+              "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Repositories\\IEmailService.cs",
+              "RelativeToolTip": "Pi3\\Repositories\\IEmailService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T15:24:14.754Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -35,6 +86,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "CadastroController.cs",
+              "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Controllers\\CadastroController.cs",
+              "RelativeDocumentMoniker": "Pi3\\Controllers\\CadastroController.cs",
+              "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Controllers\\CadastroController.cs",
+              "RelativeToolTip": "Pi3\\Controllers\\CadastroController.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwC8AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T15:24:09.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Pi3\\Controllers\\AuthController.cs",
@@ -47,7 +111,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "TokenService.cs",
               "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Repositories\\Service\\TokenService.cs",
               "RelativeDocumentMoniker": "Pi3\\Repositories\\Service\\TokenService.cs",
@@ -55,12 +119,11 @@
               "RelativeToolTip": "Pi3\\Repositories\\Service\\TokenService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T10:51:08.134Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T10:51:08.134Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "CadastroService.cs",
               "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Repositories\\Service\\CadastroService.cs",
               "RelativeDocumentMoniker": "Pi3\\Repositories\\Service\\CadastroService.cs",
@@ -68,21 +131,7 @@
               "RelativeToolTip": "Pi3\\Repositories\\Service\\CadastroService.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAASwB4AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T15:08:00.426Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CadastroController.cs",
-              "DocumentMoniker": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Controllers\\CadastroController.cs",
-              "RelativeDocumentMoniker": "Pi3\\Controllers\\CadastroController.cs",
-              "ToolTip": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Controllers\\CadastroController.cs",
-              "RelativeToolTip": "Pi3\\Controllers\\CadastroController.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAADkAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T21:36:53.477Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-29T15:08:00.426Z"
             }
           ]
         }
