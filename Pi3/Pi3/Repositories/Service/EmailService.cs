@@ -10,6 +10,7 @@ using Pi3.Models;
 using RestSharp;
 using RestSharp.Authenticators;
 using System.IO;
+using System.Net;
 
 namespace Pi3.Repositories.Service
 {
@@ -26,30 +27,30 @@ namespace Pi3.Repositories.Service
             _generateToken = generateToken;
         }
 
-        public async Task<RestResponse> EmailSender(string email, string message)
+        public async Task EmailSender(string email, string message)
         {
+            
 
-            string domain = null;
-            string ApiKey = null; //pedi para mim negocio email
+            var fromEmail = Environment.GetEnvironmentVariable("fromEmail", EnvironmentVariableTarget.User);
+            var pw = Environment.GetEnvironmentVariable("senhaEmail", EnvironmentVariableTarget.User);
+            var porta = 587;
 
-            var options = new RestClientOptions($"https://api.mailgun.net/v3")
-            {
-                Authenticator = new RestSharp.Authenticators.HttpBasicAuthenticator("api", ApiKey )
-            };
+            
 
-            var client = new RestClient(options);
+            var mensagem = new MimeMessage();
+            mensagem.From.Add(new MailboxAddress("teste", fromEmail));
+            mensagem.To.Add(MailboxAddress.Parse(email));
+            mensagem.Subject = "Confirmar Email";
+            var builder = new BodyBuilder { TextBody = string.Empty, HtmlBody = message };
+            mensagem.Body = builder.ToMessageBody();
 
-            var request = new RestRequest($"{domain}/messages", RestSharp.Method.Post);
-            request.AddParameter("domain", domain, ParameterType.UrlSegment);
-            request.AddParameter("from", "Teste "); //pedir para mim para mandar os negocio do email
-            request.AddParameter("to", email); 
-            request.AddParameter("subject", "Confirmação de Cadastro");
+            SmtpClient smtpClient = new SmtpClient();
+            smtpClient.ServerCertificateValidationCallback = (s, c, h, e) => true;
+            await smtpClient.ConnectAsync("smtp.gmail.com", porta, MailKit.Security.SecureSocketOptions.StartTls).ConfigureAwait(false);
+            await smtpClient.AuthenticateAsync(fromEmail, pw).ConfigureAwait(false);
+            await smtpClient.SendAsync(mensagem).ConfigureAwait(false);
+            await smtpClient.DisconnectAsync(true).ConfigureAwait(false);
 
-            request.AddParameter("html", message); // Adiciona o corpo da mensagem
-
-            // Envia a requisição e retorna a resposta
-            var response = await client.ExecuteAsync(request);
-            return response;
         }
 
         public string EmailToken(Usuario usuario)

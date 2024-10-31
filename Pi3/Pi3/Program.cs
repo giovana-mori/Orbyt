@@ -26,7 +26,6 @@ ContextMongodb.DatabaseName = builder.Configuration.GetSection("MongoConnection:
 
 ContextMongodb.IsSSL = Convert.ToBoolean(builder.Configuration.GetSection("MongoConnection:IsSSL").Value);
 
-
 var rsaPrivateKey = RsakeyUtils.GetPrivateKey("app.key");
 var rsaPublicKey = RsakeyUtils.GetPublicKey("app.pub");
 

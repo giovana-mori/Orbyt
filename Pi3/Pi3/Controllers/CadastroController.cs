@@ -44,11 +44,11 @@ namespace Pi3.Controllers
             {
                 string confirmationLink = $"http://localhost:5113/api/cadastro/confirm?token={token}";
 
-                var message = $"<p>Confirme seu cadastro clicando no link abaixo:</p><a href='{confirmationLink}'>Confirmar E-mail</a>";
+               string message = $"<p>Confirme seu cadastro clicando no link abaixo:</p><a href='{confirmationLink}'>Confirmar E-mail</a>";
                 await _emailService.EmailSender(usuario.Email, message);
 
 
-                return Ok(token);
+                return Ok();
             }
             return BadRequest();
         }
