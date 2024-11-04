@@ -16,6 +16,6 @@ namespace Pi3.Repositories
 
         public Task PutImage(Usuario usuario, Stream imagemStream, string imagemNome);
 
-        public void Delete(string id);
+        public Task<bool> Delete(string id);
     }
 }

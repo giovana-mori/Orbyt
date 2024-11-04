@@ -32,25 +32,29 @@ namespace Pi3.Controllers
                 return BadRequest("Imagem não enviada.");
             }
 
-            
-            using (var stream = imagem.OpenReadStream())
+            var tryCadastro = _usuarioService.GetByEmail(usuario.Email);
+
+            if (tryCadastro != null)
             {
-                usuario = await _usuarioService.Post(usuario, stream, imagem.FileName);
+                using (var stream = imagem.OpenReadStream())
+                {
+                    usuario = await _usuarioService.Post(usuario, stream, imagem.FileName);
+                }
+
+                var token = _emailService.EmailToken(usuario);
+
+                if (token != null)
+                {
+                    string confirmationLink = $"http://localhost:5113/api/cadastro/confirm?token={token}";
+
+                    string message = $"<p>Confirme seu cadastro clicando no link abaixo:</p><a href='{confirmationLink}'>Confirmar E-mail</a>";
+                    await _emailService.EmailSender(usuario.Email, message);
+
+
+                    return Ok();
+                }
             }
-
-            var token = _emailService.EmailToken(usuario);  
-
-            if (token != null)
-            {
-                string confirmationLink = $"http://localhost:5113/api/cadastro/confirm?token={token}";
-
-               string message = $"<p>Confirme seu cadastro clicando no link abaixo:</p><a href='{confirmationLink}'>Confirmar E-mail</a>";
-                await _emailService.EmailSender(usuario.Email, message);
-
-
-                return Ok();
-            }
-            return BadRequest();
+            return BadRequest("O email ja esta sendo Usado");
         }
 
         [HttpGet("confirm")]

@@ -9,15 +9,19 @@ namespace Pi3.Models
 
         [BsonId]
         [BsonElement("id"), BsonRepresentation(BsonType.ObjectId)]
-        private string Id { get; set; }
+        public string Id { get; set; }
 
         [BsonElement("nota"), BsonRepresentation(BsonType.String)]
-        private string Nota { get; set; }
+        public string Nota { get; set; }
 
         [BsonElement("comentario"), BsonRepresentation(BsonType.String)]
-        private string Comentario { get; set; }
+        public string Comentario { get; set; }
 
-        private bool Curtida { get; set; }
+        [BsonElement("curtida"), BsonRepresentation(BsonType.Boolean)]
+        public bool Curtida { get; set; }
+
+        [BsonElement("isActive"), BsonRepresentation(BsonType.Boolean)]
+        public bool IsActive { get; set; }
 
         
     }

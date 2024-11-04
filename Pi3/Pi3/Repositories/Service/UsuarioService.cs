@@ -69,11 +69,19 @@ namespace Pi3.Repositories.Service
         }
 
 
-        public void Delete(string id)
+        public async Task<bool> Delete(string id)
         {
             var filter = Builders<Usuario>.Filter.Eq(x => x.Id, id);
 
-            _conxtext.Usuario.DeleteOneAsync(filter);
+            try
+            {
+                await _conxtext.Usuario.DeleteOneAsync(filter);
+                return true;
+            }
+            catch (Exception ex) 
+            { 
+                return false;
+            }
         }
 
     }

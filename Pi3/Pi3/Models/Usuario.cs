@@ -31,9 +31,13 @@ namespace Pi3.Models
         [BsonElement("isConfirmed"), BsonRepresentation(BsonType.Boolean)]
         public bool IsConfirmed { get; set; } = false;
 
+        [BsonElement("role"), BsonRepresentation(BsonType.String)]
         public string Role { get; set; } = "User";
 
         public ObjectId? ImagemId { get; set; }
+
+        [BsonElement("isActive"), BsonRepresentation(BsonType.Boolean)]
+        public bool IsActive { get; set; }
     }
 
 }

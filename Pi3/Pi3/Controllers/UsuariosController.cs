@@ -89,7 +89,12 @@ namespace Pi3.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(string id)
         {
-            _usuarioService.Delete(id);
+            var tryDelete = await _usuarioService.Delete(id);
+
+            if (tryDelete == false)
+            {
+                return BadRequest();
+            }
 
             return Ok();
         }
