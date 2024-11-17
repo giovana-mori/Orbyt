@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 function Avatar() {
   return (
-    <div>
-      <img src="img/avatar.jpg" alt="" />
-      <h2 className="text-center text-lg text-white">Nome</h2>
-      <h2>@user_name</h2>
+    <div className="w-[200px] flex flex-col gap-2">
+      <img src="img/avatar.jpg" alt="" className="w-full rounded-full" />
+      <h2 className="text-center text-3xl text-white font-normal">Nome</h2>
+      <h2 className="text-slate-400 text-2xl font-normal text-center italic">@user_name</h2>
     </div>
   );
 }
