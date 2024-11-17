@@ -45,9 +45,9 @@ module.exports = {
   ],
 
   rules: {
-
     'linebreak-style': 0,
-
-  },
+    'quotes': 'off',
+    'react/prop-types': 'off'
+    },
 
 };

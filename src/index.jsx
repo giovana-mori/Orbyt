@@ -9,6 +9,7 @@ import App from './App';
 import Header from './layout/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Perfil from './pages/perfil';
+import './output.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
