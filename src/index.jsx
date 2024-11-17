@@ -8,6 +8,7 @@ import {
 import App from './App';
 import Header from './layout/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Perfil from './pages/perfil';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -15,7 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Header />
       <Routes>
         <Route path="/" element={<App />} />
-        {/* ... etc. */}
+        <Route path="/perfil" element={<Perfil />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
