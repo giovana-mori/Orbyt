@@ -1,26 +1,38 @@
+/* eslint-disable */
 import React from "react";
 import Avatar from "../components/avatar";
 import ContainerCard from "../components/containercard";
 import MenuPerfil from "../components/menuperfil";
+import CarouselSlick from "../components/carousel";
+import { SwiperSlide } from "swiper/react";
 import ItemComentario from "../components/itemcomentario";
-import ItemFilme from "../components/itemfilme";
 
 function Perfil() {
   return (
     <div>
       <ContainerCard>
-        <div className="flex flex-row gap-10">
-          <div className="border-r-2">
-            <div className="mr-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+          <div className="border-r-2 md:border-r-2 md:col-span-1">
+            <div className="flex items-center px-4">
               <Avatar />
             </div>
             <MenuPerfil />
           </div>
-          <div>
-            <ItemComentario />
-            <div>
-              <ItemFilme />
-            </div>
+          <div className="md:col-span-3">
+            <CarouselSlick>
+              <SwiperSlide className="w-full">
+                <ItemComentario />
+              </SwiperSlide>
+              <SwiperSlide className="w-full">
+                <ItemComentario />
+              </SwiperSlide>
+              <SwiperSlide className="w-full">
+                <ItemComentario />
+              </SwiperSlide>
+              <SwiperSlide className="w-full">
+                <ItemComentario />
+              </SwiperSlide>
+            </CarouselSlick>
           </div>
         </div>
       </ContainerCard>
