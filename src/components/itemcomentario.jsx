@@ -2,7 +2,7 @@ import React from "react";
 
 function ItemComentario() {
   return (
-    <div className="bg-[#181818] border border-[#858585] rounded-2xl p-4 max-w-[450px] w-full flex flex-col gap-4 ">
+    <div className="bg-[#181818] border border-[#858585] rounded-2xl px-4 py-3 max-w-[450px] w-full flex flex-col gap-3 ">
       <div className="flex flex-row gap-4">
         <div className="w-16 h-16 bg-[#858585] rounded-full overflow-hidden">
           <img src="img/avatar.jpg" alt="" />
@@ -19,7 +19,7 @@ function ItemComentario() {
         </div>
       </div>
       <div className="flex flex-col gap-4">
-        <p className="text-white font-normal text-lg line-clamp-4 text-justify">
+        <p className="text-white font-normal text-md line-clamp-4 text-justify">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
           facilisis elementum porttitor. Maecenas et mi ac elit vestibulum
           posuere eu sit amet eros. Suspendisse aliquam varius congue.

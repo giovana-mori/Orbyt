@@ -4,11 +4,11 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Roboto';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("https://t4.ftcdn.net/jpg/04/93/69/75/360_F_493697523_kFHsQhEAv2NJWTGmc44cPLTYz46f7DPL.jpg");
+
 }
 
 code {
