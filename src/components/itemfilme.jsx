@@ -1,8 +1,9 @@
+/* eslint-disable */
 import React, { useEffect, useState } from "react";
 import BtnWatchlist from "./btnwachlist";
 
 function ItemFilme() {
-  const [addMovie, setAddMovie] = useState(false);
+  const [addMovie, setAddMovie] = useState(true);
 
   useEffect(() => {
     setAddMovie(false);
