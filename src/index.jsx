@@ -12,14 +12,16 @@ import Header from './layout/Header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Perfil from './pages/perfil';
 import './output.css';
+import Login from './pages/login';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Header />
       <Routes>
-        <Route path="/" element={<App />} />
+        <Route path="/" element={<App /> && <Header />} />
         <Route path="/perfil" element={<Perfil />} />
+        <Route path="/login" element={<Login />} />
+
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
