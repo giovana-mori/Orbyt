@@ -2,14 +2,14 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import ItemFilme from '../components/itemfilme';
-import Header from '../layout/Header';
 import ContainerCard from '../components/containercard';
 import Filter from '../components/filters/filter';
-import FilterOrderBy from '../components/filters/filterorderby';
+import DropDownSelect from '../components/filters/dropdownselect';
 import FilterCategory from '../components/filters/filtercategory';
 import FilterReview from '../components/filters/filterreview';
 import FilterStreaming from '../components/filters/filterstreaming';
 import FilterYear from '../components/filters/filteryear';
+import NavigationTitle from '../components/navigationtitle';
 
 
 
@@ -19,18 +19,14 @@ function Filmes() {
 
     return (
         <div>
-            <Header></Header>
             <ContainerCard>
-                <div className="flex flex-col my-20">
-                    <button className="text-white" onClick={() => navigate(-1)}>Back</button>
-                    <h1 className="text-white text-4xl font-bold text-allign">Filmes</h1>
-                </div>
+                <NavigationTitle title={"filmes"} />
                 <Filter>
-                    <FilterOrderBy></FilterOrderBy>
-                    <FilterCategory></FilterCategory>
-                    <FilterReview></FilterReview>
-                    <FilterStreaming></FilterStreaming>
-                    <FilterYear></FilterYear>
+                    <DropDownSelect/>
+                    <FilterCategory/>
+                    <FilterReview/>
+                    <FilterStreaming/>
+                    <FilterYear/>
                 </Filter>
                 <ItemFilme></ItemFilme>
             </ContainerCard>

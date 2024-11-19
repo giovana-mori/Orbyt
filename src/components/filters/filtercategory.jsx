@@ -30,7 +30,7 @@ function FilterCategory() {
     };
 
     return (
-        <div>
+        <div className="bg-black p-1 rounded-full w-full text-center text-white flex flex-row items-center justify-center max-w-44 font-semibold mx-auto gap-2">
             <Select 
                 options={category}
                 isMulti
