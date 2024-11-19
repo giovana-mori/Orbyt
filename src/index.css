@@ -4,15 +4,14 @@
 
 body {
   margin: 0;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url("https://t4.ftcdn.net/jpg/04/93/69/75/360_F_493697523_kFHsQhEAv2NJWTGmc44cPLTYz46f7DPL.jpg");
-
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 .slick-slide {
@@ -29,4 +28,19 @@ code {
 }
 .swiper-slide {
   width: 80%; /* Ajuste a largura para que o próximo slide apareça parcialmente */
+}
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  box-shadow: 0 0 13px 10px rgba(0, 0, 0, 0.3);
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 15pt;
+  color: blueviolet;
+  font-weight: 700;
 }

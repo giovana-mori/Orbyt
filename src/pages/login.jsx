@@ -1,8 +1,6 @@
 /* eslint-disable */
-import React from 'react';
-import FormItems from '../components/formitems';
-import Form from '../components/form';
-
+import React from "react";
+import Form from "../components/forms/form";
 
 export default function Login() {
   return (
@@ -18,10 +16,6 @@ export default function Login() {
           <h1 className="flex justify-start text-3xl text-white">Login</h1>
           <div className="divide-y-2 divide-gray-300/50">
             <div className="space-y-6 py-8 text-base leading-7 text-white">
-              <Form>
-                <FormItems fName="Usuário" />
-                <FormItems fName="Senha" ftype="password" />
-              </Form>
               <a className="text-sm text-sky-500 hover:text-sky-600">
                 Esqueci minha senha
               </a>

@@ -1,15 +1,26 @@
 /* eslint-disable */
 import React from "react";
+import { Link } from "react-router-dom";
 
 function MenuPerfil() {
   return (
     <div className="flex flex-col my-20">
       <ul className="flex flex-col gap-4">
         <li className="w-full">
-          <a className="text-left text-white font-bold text-3xl border-b border-white w-full block" href="/perfil">Visão Geral</a>
+          <Link
+            className="text-left text-white font-bold text-xl border-b border-white w-full block"
+            to="/perfil"
+          >
+            Visão Geral
+          </Link>
         </li>
         <li>
-          <a className="text-left text-white font-bold text-3xl border-white w-full block" href="/perfil">Configurações</a>
+          <Link
+            className="text-left text-white font-bold text-xl border-white w-full block"
+            to="/configuracoes"
+          >
+            Configurações
+          </Link>
         </li>
       </ul>
     </div>

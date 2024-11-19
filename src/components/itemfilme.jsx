@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React, { useEffect, useState } from "react";
 import BtnWatchlist from "./btnwachlist";
+import BtnFavourite from "./btnfavourite";
 
 function ItemFilme() {
   const [addMovie, setAddMovie] = useState(true);
@@ -10,9 +11,16 @@ function ItemFilme() {
   }, []);
 
   return (
-    <div className="flex flex-col bg-fundocards max-w-xs border border-bordagray rounded-xl overflow-hidden gap-2 pb-3">
+    <div className="flex flex-col bg-fundocards max-w-xs border border-bordagray rounded-xl overflow-hidden gap-2 pb-3 relative">
       <div className="h-96 overflow-hidden flex">
-        <img src="img/cartaz_coringa.jpg" className="object-cover w-full" alt="" />
+        <div className="absolute top-2 right-2 p-2 z-10">
+          <BtnFavourite  />
+        </div>
+        <img
+          src="img/cartaz_coringa.jpg"
+          className="object-cover w-full"
+          alt=""
+        />
       </div>
       <div className="flex flex-row items-center justify-center gap-2">
         <h2 className="text-lg text-white font-medium">Título</h2>

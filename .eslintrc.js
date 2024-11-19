@@ -48,6 +48,7 @@ module.exports = {
     'linebreak-style': 0,
     'react/prop-types': 'off',
     'no-confusing-arrow': 'off',
+    quotes: 'off',
   },
 
 };

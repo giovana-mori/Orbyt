@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function ItemComentario() {
   return (
@@ -8,7 +8,7 @@ function ItemComentario() {
           <img src="img/avatar.jpg" alt="" />
         </div>
         <div className="flex flex-col items-center">
-          <h1 className="text-white font-semibold text-xl">Nome do usuário</h1>
+          <h1 className="text-white font-semibold text-lg">Nome do usuário</h1>
           <div className="flex flex-row w-full">
             <img className="w-8" src="img/star.svg" alt="" />
             <img className="w-8" src="img/star.svg" alt="" />
@@ -19,7 +19,7 @@ function ItemComentario() {
         </div>
       </div>
       <div className="flex flex-col gap-4">
-        <p className="text-white font-normal text-md line-clamp-4 text-justify">
+        <p className="text-white font-normal text-sm line-clamp-4 text-justify">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
           facilisis elementum porttitor. Maecenas et mi ac elit vestibulum
           posuere eu sit amet eros. Suspendisse aliquam varius congue.
