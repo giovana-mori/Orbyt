@@ -1,8 +1,6 @@
 import React from "react";
 
-function InputLabel({
-  id, label, placeholder, type = "text", name,
-}) {
+function InputLabel({ id, label, placeholder, type, name }) {
   return (
     <div className="mb-4">
       <label
