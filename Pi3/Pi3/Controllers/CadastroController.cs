@@ -1,11 +1,7 @@
-﻿using AspNetCore.Identity.MongoDbCore.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Pi3.Dtos;
+﻿using Microsoft.AspNetCore.Mvc;
 using Pi3.Models;
 using Pi3.Repositories;
-using Pi3.Repositories.Service;
-using System.Security.Claims;
+
 
 namespace Pi3.Controllers
 {
@@ -25,11 +21,20 @@ namespace Pi3.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Cadastro([FromForm] Usuario usuario, [FromForm] IFormFile imagem)
+        public async Task<ActionResult> Cadastro([FromForm] Usuario usuario, [FromForm] IFormFile? imagem)
         {
             if (imagem == null || imagem.Length == 0)
             {
-                return BadRequest("Imagem não enviada.");
+                var caminhoImagemPadrao = Path.Combine(Directory.GetCurrentDirectory(), "img/default-user.png");
+
+                imagem = new FormFile
+                (
+                    baseStream: new FileStream(caminhoImagemPadrao, FileMode.Open, FileAccess.Read),
+                    baseStreamOffset: 0,
+                    length: new FileInfo(caminhoImagemPadrao).Length,
+                    name: "defaultImage",
+                    fileName: "default.jpg"
+                );
             }
 
             var tryCadastro = _usuarioService.GetByEmail(usuario.Email);

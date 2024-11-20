@@ -1,8 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
-using Org.BouncyCastle.Crypto.Parameters;
 using Pi3.Models;
 using Pi3.Security;
 using System.IdentityModel.Tokens.Jwt;

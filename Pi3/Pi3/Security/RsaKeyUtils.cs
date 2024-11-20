@@ -1,6 +1,4 @@
 ﻿using System.Security.Cryptography;
-using System.IO;
-
 
 namespace Pi3.Security
 {

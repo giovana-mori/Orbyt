@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using Pi3.Models;
@@ -17,7 +16,7 @@ namespace Pi3.Repositories.Service
 
         public async Task<Usuario> GetByEmail(string email)
         {
-            Usuario usuario = await _conxtext.Usuario.Find(x=> x.Email == email).FirstOrDefaultAsync();
+            Usuario usuario = await _conxtext.Usuario.Find(x => x.Email == email).FirstOrDefaultAsync();
 
             return usuario;
         }
@@ -72,10 +71,11 @@ namespace Pi3.Repositories.Service
         public async Task<bool> Delete(string id)
         {
             var filter = Builders<Usuario>.Filter.Eq(x => x.Id, id);
-
+            var update = Builders<Usuario>.Update
+                    .Set(u => u.IsActive, false);
             try
             {
-                await _conxtext.Usuario.DeleteOneAsync(filter);
+                await _conxtext.Usuario.UpdateOneAsync(filter, update);
                 return true;
             }
             catch (Exception ex) 

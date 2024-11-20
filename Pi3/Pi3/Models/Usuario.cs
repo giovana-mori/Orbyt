@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using MongoDB.Bson.Serialization.Attributes;
+﻿using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
-using Microsoft.AspNetCore.Identity;
 
 namespace Pi3.Models
 {
@@ -37,7 +30,7 @@ namespace Pi3.Models
         public ObjectId? ImagemId { get; set; }
 
         [BsonElement("isActive"), BsonRepresentation(BsonType.Boolean)]
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
     }
 
 }

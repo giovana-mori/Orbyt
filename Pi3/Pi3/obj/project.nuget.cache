@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ImvTjlKbytM=",
+  "dgSpecHash": "u33sykimYIE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Pi3.csproj",
+  "projectFilePath": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\BackEnd\\ctl\\Pi3\\Pi3\\Pi3.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Arthur\\.nuget\\packages\\aspnetcore.identity.mongo\\9.0.0\\aspnetcore.identity.mongo.9.0.0.nupkg.sha512",
     "C:\\Users\\Arthur\\.nuget\\packages\\aspnetcore.identity.mongodbcore\\3.1.2\\aspnetcore.identity.mongodbcore.3.1.2.nupkg.sha512",

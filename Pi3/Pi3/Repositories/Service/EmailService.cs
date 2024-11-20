@@ -1,16 +1,7 @@
-﻿
-using MailKit.Net.Smtp;
-using Microsoft.DotNet.Scaffolding.Shared.CodeModifier.CodeChange;
-using Microsoft.OpenApi.Models;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
+﻿using MailKit.Net.Smtp;
 using MimeKit;
-using MongoDB.Driver;
-using Org.BouncyCastle.Asn1.Crmf;
 using Pi3.Models;
-using RestSharp;
-using RestSharp.Authenticators;
-using System.IO;
-using System.Net;
+
 
 namespace Pi3.Repositories.Service
 {

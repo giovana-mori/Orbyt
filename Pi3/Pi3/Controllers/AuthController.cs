@@ -1,18 +1,11 @@
-﻿using AspNetCore.Identity.MongoDbCore.Models;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using NuGet.Common;
-using Org.BouncyCastle.Crypto.Parameters;
 using Pi3.Models;
 using Pi3.Repositories;
-using Pi3.Repositories.Service;
-using Pi3.Security;
+using System.Web;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
-using System.Net;
-using System.Security.Claims;
-using System.Security.Cryptography;
-using static System.Net.WebRequestMethods;
 
 namespace Pi3.Controllers
 {
@@ -20,8 +13,8 @@ namespace Pi3.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
+
         private readonly IUsuarioService _usuarioService;
-        private readonly IConfiguration _config;
         private readonly IGenerateToken _generateToken;
         private readonly TokenValidationParameters _validationParameters;
 
@@ -29,7 +22,6 @@ namespace Pi3.Controllers
         {
             _usuarioService = usuarioService;
             _generateToken = generateToken;
-            _config = config;
             _validationParameters = tokenValidationParameters;
         }
 
@@ -49,8 +41,19 @@ namespace Pi3.Controllers
                 var expiration = DateTime.UtcNow.AddMinutes(5);
 
                 var token = _generateToken.GenerateToken(usuario, expiration);
+
+                var cookie = new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = true,
+                    Expires = DateTimeOffset.UtcNow.AddDays(7)
+                };
+
+                Response.Cookies.Append("Jwt", token, cookie);
+
                 return Ok(new { Token = token });
             }
+
 
             return Unauthorized("Confirme email para entrar");
         }

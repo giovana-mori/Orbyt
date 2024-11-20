@@ -19,6 +19,8 @@ builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IGenerateToken, TokenService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<ICadastro, CadastroService>();
+builder.Services.AddScoped<IMovieService, MovieService>();
+builder.Services.AddScoped<ITmdbService, TmdbService>();
 
 
 ContextMongodb.ConnectionString = builder.Configuration.GetSection("MongoConnection:ConnectionString").Value;
