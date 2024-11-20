@@ -12,6 +12,7 @@ import Login from "./pages/login";
 import ConfigPerfil from "./pages/configperfil";
 import Layout from "./layout/layout";
 import Filmes from "./pages/filmes";
+import Home from "./pages/home";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -22,6 +23,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/login" element={<Login />} />
           <Route path="/configuracoes" element={<ConfigPerfil />} />
           <Route path="/filmes" element={<Filmes />} />
+          <Route path="/" element={<Home />} />
         </Route>
       </Routes>
     </BrowserRouter>

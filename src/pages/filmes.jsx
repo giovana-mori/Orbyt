@@ -22,16 +22,16 @@ function Filmes() {
             <ContainerCard>
                 <NavigationTitle title={"filmes"} />
                 <Filter>
-                    <DropDownSelect/>
-                    <FilterCategory/>
-                    <FilterReview/>
-                    <FilterStreaming/>
-                    <FilterYear/>
+                    <DropDownSelect />
+                    <FilterCategory />
+                    <FilterReview />
+                    <FilterStreaming />
+                    <FilterYear />
                 </Filter>
-                <ItemFilme></ItemFilme>
+                <ItemFilme />
             </ContainerCard>
         </div>
-  );
+    );
 }
 
 export default Filmes;
