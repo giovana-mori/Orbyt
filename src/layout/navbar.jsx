@@ -22,6 +22,12 @@ function Navbar() {
               alt="Logo"
               className="w-24"
             />
+            <Link
+              to="/filmes"
+              className="text-white font-normal hover:underline font-bebas leading-[normal] text-2xl text-left"
+            >
+              FILMES
+            </Link>
           </div>
         </Link>
         <div className="flex items-center mx-4 gap-2 flex-1 max-w-sm justify-center">
@@ -47,12 +53,6 @@ function Navbar() {
               />
             </svg>
           </div>
-          <Link
-            to="/filmes"
-            className="text-white font-normal hover:underline font-bebas leading-[normal] text-2xl text-left"
-          >
-            FILMES
-          </Link>
         </div>
         <div className="flex space-x-6">
           <Link

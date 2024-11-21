@@ -12,7 +12,7 @@ function InputLabel({
     <div className="mb-4">
       <label
         htmlFor={id}
-        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        className="block mb-2 text-sm font-medium text-white"
       >
         {label}
         <input
