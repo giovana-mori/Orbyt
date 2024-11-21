@@ -23,7 +23,7 @@ const SingleSelect = ({ elements, title, onChange = () => {} }) => {
         >
           <div className="flex flex-wrap gap-1">
             {selectedElement ? (
-              <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-white text-black font-roboto font-semibold text-sm">
+              <span className="inline-flex items-center px-2 py-0.5 min-h-8 rounded-full bg-white text-black font-roboto font-semibold text-sm">
                 {selectedElement.label}
               </span>
             ) : (

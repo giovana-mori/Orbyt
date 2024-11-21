@@ -28,7 +28,7 @@ const RangeInput = ({ title, onChange = () => {} }) => {
             >
                 <div className="flex flex-wrap gap-1"> 
                     {fromReview ? ( 
-                        <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-white text-black font-roboto font-semibold text-sm"> De: {fromReview} Até: {toReview} </span> ) 
+                        <span className="inline-flex items-center px-2 py-0.5 min-h-8 rounded-full bg-white text-black font-roboto font-semibold text-sm"> De: {fromReview} Até: {toReview} </span> ) 
                         : ( 
                         <span className="text-white font-bebas text-2xl">{title}</span> 
                     )}

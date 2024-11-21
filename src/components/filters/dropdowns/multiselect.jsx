@@ -39,7 +39,7 @@ const MultiSelect = ({ elements, title, onChange = () => {} }) => {
               selectedElements.map((element) => (
                 <span
                   key={element.id}
-                  className="inline-flex items-center px-2 py-0.5 rounded-full bg-white text-black font-roboto font-semibold text-sm"
+                  className="inline-flex items-center px-2 py-0.5 min-h-8 rounded-full bg-white text-black font-roboto font-semibold text-sm"
                 >
                   {element.label}
                   <button
