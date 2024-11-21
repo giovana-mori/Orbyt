@@ -6,23 +6,29 @@ namespace Pi3.Models
 {
     public class Avaliacao
     {
-
         [BsonId]
-        [BsonElement("id"), BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string? Id { get; set; } 
 
-        [BsonElement("nota"), BsonRepresentation(BsonType.String)]
-        public string Nota { get; set; }
+        [BsonElement("IdTmdb")]
+        public int IdTmdb { get; set; } 
 
-        [BsonElement("comentario"), BsonRepresentation(BsonType.String)]
-        public string Comentario { get; set; }
+        [BsonElement("IdUsuario")]
+        public string IdUsuario { get; set; } = string.Empty; 
 
-        [BsonElement("curtida"), BsonRepresentation(BsonType.Boolean)]
-        public bool Curtida { get; set; }
+        [BsonElement("Comentario")]
+        public string Comentario { get; set; } = string.Empty; 
 
-        [BsonElement("isActive"), BsonRepresentation(BsonType.Boolean)]
-        public bool IsActive { get; set; }
+        [BsonElement("Likes")]
+        public int Likes { get; set; } 
 
-        
+        [BsonElement("Dislikes")]
+        public int Dislikes { get; set; } 
+
+        [BsonElement("Spoiler")] 
+        public bool Spoiler { get; set; } 
+
+        [BsonElement("Exibir")] 
+        public bool Exibir { get; set; } = true;
     }
 }
