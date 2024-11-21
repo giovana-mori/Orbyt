@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "fhAlJZjrIHY=",
   "success": true,
   "projectFilePath": "C:\\Users\\fabri\\Desktop\\Orbyt\\Pi3\\Pi3\\Pi3.csproj",
+=======
+  "dgSpecHash": "ImvTjlKbytM=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Arthur\\Desktop\\FATEC\\3S\\PI3\\Orbyt\\Pi3\\Pi3\\Pi3.csproj",
+>>>>>>> Stashed changes
   "expectedPackageFiles": [
     "C:\\Users\\fabri\\.nuget\\packages\\aspnetcore.identity.mongo\\9.0.0\\aspnetcore.identity.mongo.9.0.0.nupkg.sha512",
     "C:\\Users\\fabri\\.nuget\\packages\\aspnetcore.identity.mongodbcore\\3.1.2\\aspnetcore.identity.mongodbcore.3.1.2.nupkg.sha512",

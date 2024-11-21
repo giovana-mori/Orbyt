@@ -72,6 +72,7 @@ namespace Pi3.Controllers
             }
             return Ok(movie);
         }
+        //retirar essa parte 
         [HttpGet("{collectionName}")]
         public async Task<IActionResult> GetMoviesByCollection(string collectionName)
         {
