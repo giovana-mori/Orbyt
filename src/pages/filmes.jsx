@@ -1,32 +1,26 @@
 /* eslint-disable */
 import React from 'react';
-import { useNavigate } from "react-router-dom";
+import NavigationTitle from '../components/navigationtitle';
 import ItemFilme from '../components/itemfilme';
 import ContainerCard from '../components/containercard';
 import Filter from '../components/filters/filter';
-import DropDownSelect from '../components/filters/dropdownselect';
-import FilterCategory from '../components/filters/filtercategory';
-import FilterReview from '../components/filters/filterreview';
-import FilterStreaming from '../components/filters/filterstreaming';
-import FilterYear from '../components/filters/filteryear';
-import NavigationTitle from '../components/navigationtitle';
-
-
-
+import Category from '../components/filters/category';
+import Streaming from '../components/filters/streaming';
+import Year from '../components/filters/year';
+import OrderBy from '../components/filters/orderby';
+import Review from '../components/filters/review';
 
 function Filmes() {
-    const history = useNavigate();
-
     return (
         <div>
             <ContainerCard>
                 <NavigationTitle title={"filmes"} />
                 <Filter>
-                    <DropDownSelect />
-                    <FilterCategory />
-                    <FilterReview />
-                    <FilterStreaming />
-                    <FilterYear />
+                    <OrderBy/>
+                    <Category/>
+                    <Review/>
+                    <Streaming/>
+                    <Year/>
                 </Filter>
                 <ItemFilme />
             </ContainerCard>
