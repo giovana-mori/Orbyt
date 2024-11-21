@@ -1,6 +1,5 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Pi3.Models
 {
@@ -8,75 +7,58 @@ namespace Pi3.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; } // ID gerado pelo MongoDB
+        public string Id { get; set; } 
 
         [BsonElement("IdTmdb")]
-        public int IdTmdb { get; set; } // ID do TMDb
+        public int IdTmdb { get; set; } 
 
         [BsonElement("Titulo")]
-        public string Titulo { get; set; } = string.Empty; // Título do filme
+        public string Titulo { get; set; } = string.Empty; 
 
         [BsonElement("Sinopse")]
-        public string Sinopse { get; set; } = string.Empty; // Sinopse
+        public string Sinopse { get; set; } = string.Empty; 
 
         [BsonElement("DataLancamento")]
-        public DateTime DataLancamento { get; set; } // Data de lançamento
+        public DateTime DataLancamento { get; set; }
 
         [BsonElement("Duracao")]
-        public int Duracao { get; set; } // Duração em minutos
+        public int Duracao { get; set; } 
 
         [BsonElement("MediaVotos")]
-        public double MediaVotos { get; set; } // Média dos votos
+        public double MediaVotos { get; set; } 
 
         [BsonElement("ContagemVotos")]
-        public int ContagemVotos { get; set; } // Contagem de votos
+        public int ContagemVotos { get; set; } 
 
         [BsonElement("CaminhoPoster")]
-        public string CaminhoPoster { get; set; } = string.Empty; // Caminho para o poster
+        public string CaminhoPoster { get; set; } = string.Empty; 
 
         [BsonElement("CaminhoBackdrop")]
-        public string CaminhoBackdrop { get; set; } = string.Empty; // Caminho para a imagem de fundo
+        public string CaminhoBackdrop { get; set; } = string.Empty; 
 
         [BsonElement("Generos")]
-        public List<string> Generos { get; set; } = new List<string>(); // Gêneros
+        public List<string> Generos { get; set; } = new List<string>(); 
 
         [BsonElement("Trailers")]
-        public List<Trailer> Trailers { get; set; } = new List<Trailer>(); // Lista de trailers
+        public List<Trailer> Trailers { get; set; } = new List<Trailer>(); 
 
         [BsonElement("Elenco")]
-        public List<Ator> Elenco { get; set; } = new List<Ator>(); // Lista de atores
+        public List<Ator> Elenco { get; set; } = new List<Ator>(); 
 
         [BsonElement("ComissaoTecnica")]
-        public List<CrewMember> ComissaoTecnica { get; set; } = new List<CrewMember>(); // Lista de equipe técnica
+        public List<CrewMember> ComissaoTecnica { get; set; } = new List<CrewMember>();
 
         [BsonElement("Orcamento")]
-        public long Orcamento { get; set; } // Orçamento do filme
+        public long Orcamento { get; set; } 
 
         [BsonElement("Receita")]
-        public long Receita { get; set; } // Receita do filme
+        public long Receita { get; set; } 
 
         [BsonElement("Providers")]
-        public List<Provider> Providers { get; set; } = new List<Provider>(); // Plataformas de onde assistir
+        public List<Provider> Providers { get; set; } = new List<Provider>(); 
 
         [BsonElement("PalavrasChave")]
-        public List<string> PalavrasChave { get; set; } = new List<string>(); // Palavras-chave do filme
+        public List<string> PalavrasChave { get; set; } = new List<string>(); 
     }
-
-
-    public class CrewMember
-    {
-        [BsonElement("Id")]
-        public int Id { get; set; } // ID do membro da equipe no TMDb
-
-        [BsonElement("Nome")]
-        public string Nome { get; set; } = string.Empty; // Nome do membro da equipe
-
-        [BsonElement("Cargo")]
-        public string Cargo { get; set; } = string.Empty; // Função na equipe (ex: Diretor, Roteirista)
-
-        [BsonElement("Departamento")]
-        public string Departamento { get; set; } = string.Empty; // Departamento (ex: Direção, Roteiro)
-    }
-    
 }
 

@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Pi3.Models;
 using Pi3.Repositories;
 
-
 namespace Pi3.Controllers
 {
     
@@ -44,24 +43,6 @@ namespace Pi3.Controllers
 
             return Ok(usuario);
         }
-
-        
-        //SERVE PARA O FABRICIO USAR DE BASE, NAO DELETAR
-        //[HttpPost]
-        //public async Task<ActionResult> Post([FromForm] Usuario usuario, [FromForm] IFormFile imagem)
-        //{
-        //    if (imagem == null || imagem.Length == 0)
-        //    {
-        //        return BadRequest("Imagem não enviada.");
-        //    }
-
-        //    using (var stream = imagem.OpenReadStream()) 
-        //    {
-        //        await _usuarioService.Post(usuario, stream, imagem.FileName);
-
-        //        return StatusCode(StatusCodes.Status201Created, null);
-        //    }
-        //}
 
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(string id, [FromForm] Usuario usuario, [FromForm] IFormFile? imagem)

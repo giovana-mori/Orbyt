@@ -5,9 +5,9 @@ namespace Pi3.Models
     public class Provider
     {
         [BsonElement("Nome")]
-        public string Nome { get; set; } = string.Empty; // Nome do provedor (ex: Netflix, Amazon Prime)
+        public string Nome { get; set; } = string.Empty;
 
         [BsonElement("LogoCaminho")]
-        public string LogoCaminho { get; set; } = string.Empty; // Caminho do logo do provedor
+        public string LogoCaminho { get; set; } = string.Empty; 
     }
 }

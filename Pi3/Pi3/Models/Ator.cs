@@ -5,15 +5,15 @@ namespace Pi3.Models
     public class Ator
     {
         [BsonElement("Id")]
-        public int Id { get; set; } // ID do ator no TMDb
+        public int Id { get; set; } 
 
         [BsonElement("Nome")]
-        public string Nome { get; set; } = string.Empty; // Nome do ator
+        public string Nome { get; set; } = string.Empty; 
 
         [BsonElement("Personagem")]
-        public string Personagem { get; set; } = string.Empty; // Nome do personagem interpretado
+        public string Personagem { get; set; } = string.Empty; 
 
         [BsonElement("FotoCaminho")]
-        public string FotoCaminho { get; set; } = string.Empty; // Caminho para a foto do ator
+        public string FotoCaminho { get; set; } = string.Empty; 
     }
 }

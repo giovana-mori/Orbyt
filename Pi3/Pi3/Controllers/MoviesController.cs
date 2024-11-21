@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MongoDB.Driver;
 using Pi3.Models;
-using Pi3.Repositories;
 using Pi3.Repositories.Service;
-using System.Security.Claims;
 
 namespace Pi3.Controllers
 {
@@ -50,7 +47,6 @@ namespace Pi3.Controllers
             return Ok("Filmes salvos ou atualizados com sucesso.");
         }
         
-
         [HttpGet("id/{id:length(24)}")]
         public async Task<IActionResult> GetAnyMovieById(string id)
         {
@@ -61,27 +57,5 @@ namespace Pi3.Controllers
             }
             return Ok(movie);
         }
-
-        [HttpGet("tmdb/{idTmdb:int}")]
-        public async Task<IActionResult> GetAnyMovieByTmdbId(int idTmdb)
-        {
-            var movie = await _movieService.GetAnyMovieByTmdbIdAsync(idTmdb);
-            if (movie == null)
-            {
-                return NotFound("Filme não encontrado.");
-            }
-            return Ok(movie);
-        }
-        //retirar essa parte 
-        [HttpGet("{collectionName}")]
-        public async Task<IActionResult> GetMoviesByCollection(string collectionName)
-        {
-            IMongoCollection<Movie> collection;
-
-            var movies = _movieService.GetMoviesByCollection(collectionName);
-
-            return Ok(movies);
-        }
-
     }
 }

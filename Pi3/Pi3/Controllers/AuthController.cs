@@ -2,10 +2,6 @@
 using Microsoft.IdentityModel.Tokens;
 using Pi3.Models;
 using Pi3.Repositories;
-using System.Web;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System.IdentityModel.Tokens.Jwt;
 
 namespace Pi3.Controllers
 {
@@ -30,7 +26,6 @@ namespace Pi3.Controllers
         public async Task<ActionResult> Login([FromForm] LoginModel login)
         {
             var usuario = await _usuarioService.GetByEmail(login.Email);
-            var tokenHandler = new JwtSecurityTokenHandler();
 
             if (usuario.IsConfirmed == true)
             {

@@ -1,6 +1,4 @@
-﻿using Microsoft.IdentityModel.Tokens;
-
-namespace Pi3.Repositories
+﻿namespace Pi3.Repositories
 {
     public interface ICadastro
     {

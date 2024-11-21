@@ -1,5 +1,4 @@
-﻿using MongoDB.Driver;
-using Pi3.Models;
+﻿using Pi3.Models;
 
 namespace Pi3.Repositories.Service
 {

@@ -1,9 +1,5 @@
 ﻿using MongoDB.Driver;
 using Pi3.Models;
-using System.Net.Http.Json;
-using Newtonsoft.Json.Linq;
-using RestSharp;
-using NuGet.Configuration;
 
 namespace Pi3.Repositories.Service
 {

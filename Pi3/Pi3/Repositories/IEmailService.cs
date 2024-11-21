@@ -1,6 +1,4 @@
-﻿using MongoDB.Driver;
-using Pi3.Models;
-using RestSharp;
+﻿using Pi3.Models;
 
 namespace Pi3.Repositories
 {
