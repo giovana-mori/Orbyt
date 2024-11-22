@@ -1,11 +1,12 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using Pi3.Models;
+using Pi3.Repositories;
 using Pi3.Security;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 
-namespace Pi3.Repositories.Service
+namespace Pi3.Service
 {
     public class TokenService : IGenerateToken
     {

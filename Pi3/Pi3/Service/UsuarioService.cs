@@ -2,15 +2,16 @@
 using MongoDB.Bson;
 using MongoDB.Driver;
 using Pi3.Models;
+using Pi3.Repositories;
 
-namespace Pi3.Repositories.Service
+namespace Pi3.Service
 {
     public class UsuarioService : IUsuarioService
     {
         private readonly ContextMongodb _conxtext;
 
         public UsuarioService(ContextMongodb conxtext)
-        { 
+        {
             _conxtext = conxtext;
         }
 
@@ -49,7 +50,7 @@ namespace Pi3.Repositories.Service
         }
         public async Task Put(string id, Usuario usuario)
         {
-            var usuarioImagem = _conxtext.Usuario.Find(x=> x.Id == id).FirstOrDefault();
+            var usuarioImagem = _conxtext.Usuario.Find(x => x.Id == id).FirstOrDefault();
 
             usuario.ImagemId = usuarioImagem.ImagemId;
 
@@ -78,8 +79,8 @@ namespace Pi3.Repositories.Service
                 await _conxtext.Usuario.UpdateOneAsync(filter, update);
                 return true;
             }
-            catch (Exception ex) 
-            { 
+            catch (Exception ex)
+            {
                 return false;
             }
         }

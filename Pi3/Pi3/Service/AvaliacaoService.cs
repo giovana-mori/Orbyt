@@ -1,7 +1,8 @@
 ﻿using MongoDB.Driver;
 using Pi3.Models;
+using Pi3.Repositories.Service;
 
-namespace Pi3.Repositories.Service
+namespace Pi3.Service
 {
     public class AvaliacaoService : IAvaliacaoService
     {
@@ -47,16 +48,16 @@ namespace Pi3.Repositories.Service
 
         public async Task<bool> UpdateExibirAsync(string id, string idUsuario)
         {
-          
+
             var filter = Builders<Avaliacao>.Filter.And(
                 Builders<Avaliacao>.Filter.Eq(a => a.Id, id),
                 Builders<Avaliacao>.Filter.Eq(a => a.IdUsuario, idUsuario)
             );
-           
+
             var update = Builders<Avaliacao>.Update.Set(a => a.Exibir, false);
-           
+
             var result = await _avaliacoesCollection.UpdateOneAsync(filter, update);
-           
+
             return result.ModifiedCount > 0;
         }
 
@@ -70,10 +71,10 @@ namespace Pi3.Repositories.Service
 
         public async Task<List<Avaliacao>> GetReviewsByFilmIdSortedByLikesAsync(int idTmdb)
         {
-           
+
             var filter = Builders<Avaliacao>.Filter.Eq(a => a.IdTmdb, idTmdb);
 
-           
+
             var reviews = await _avaliacoesCollection.Find(filter)
                 .Sort(Builders<Avaliacao>.Sort.Descending(a => a.Likes))
                 .ToListAsync();

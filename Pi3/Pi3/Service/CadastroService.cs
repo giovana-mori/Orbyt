@@ -1,12 +1,13 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
 using Pi3.Models;
+using Pi3.Repositories;
 using Pi3.Security;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 
-namespace Pi3.Repositories.Service
+namespace Pi3.Service
 {
     public class CadastroService : ICadastro
     {
@@ -25,15 +26,15 @@ namespace Pi3.Repositories.Service
 
         public async Task<bool> ActivateUser(string jwt)
         {
-            
+
             var tokenHandler = new JwtSecurityTokenHandler();
 
-            var principal = tokenHandler.ValidateToken(jwt, validationParameters , out var validatedToken);
+            var principal = tokenHandler.ValidateToken(jwt, validationParameters, out var validatedToken);
 
             var email = principal.FindFirst(ClaimTypes.Email)?.Value;
             if (validatedToken is JwtSecurityToken jwtToken)
             {
-                var usuario =  await _context.Usuario.Find(x => x.Email == email).FirstOrDefaultAsync();
+                var usuario = await _context.Usuario.Find(x => x.Email == email).FirstOrDefaultAsync();
                 var filter = Builders<Usuario>.Filter.Eq(x => x.Email, usuario.Email);
                 var update = Builders<Usuario>.Update
                     .Set(u => u.IsConfirmed, true);
@@ -47,6 +48,6 @@ namespace Pi3.Repositories.Service
             }
 
             return false;
-        }  
+        }
     }
 }

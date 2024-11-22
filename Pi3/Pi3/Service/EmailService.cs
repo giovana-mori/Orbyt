@@ -1,9 +1,9 @@
 ﻿using MailKit.Net.Smtp;
 using MimeKit;
 using Pi3.Models;
+using Pi3.Repositories;
 
-
-namespace Pi3.Repositories.Service
+namespace Pi3.Service
 {
     public class EmailService : IEmailService
     {
@@ -20,13 +20,13 @@ namespace Pi3.Repositories.Service
 
         public async Task EmailSender(string email, string message)
         {
-            
+
 
             var fromEmail = Environment.GetEnvironmentVariable("fromEmail", EnvironmentVariableTarget.User);
             var pw = Environment.GetEnvironmentVariable("senhaEmail", EnvironmentVariableTarget.User);
             var porta = 587;
 
-            
+
 
             var mensagem = new MimeMessage();
             mensagem.From.Add(new MailboxAddress("teste", fromEmail));

@@ -8,7 +8,7 @@ namespace Pi3.Controllers
     [Route("api/[controller]")]
     public class MoviesController : ControllerBase
     {
-        private readonly IMovieService _movieService; 
+        private readonly IMovieService _movieService;
         private readonly ITmdbService _tmdbService;
 
         public MoviesController(IMovieService movieService, ITmdbService tmdbService)
@@ -46,16 +46,17 @@ namespace Pi3.Controllers
 
             return Ok("Filmes salvos ou atualizados com sucesso.");
         }
-        
-        [HttpGet("id/{id:length(24)}")]
-        public async Task<IActionResult> GetAnyMovieById(string id)
+
+        [HttpGet("tmdb/{idTmdb:int}")]
+        public async Task<IActionResult> GetAnyMovieByTmdbId(int idTmdb)
         {
-            var movie = await _movieService.GetAnyMovieByIdAsync(id);
+            var movie = await _movieService.GetAnyMovieByTmdbIdAsync(idTmdb);
             if (movie == null)
             {
                 return NotFound("Filme não encontrado.");
             }
             return Ok(movie);
+
         }
     }
 }

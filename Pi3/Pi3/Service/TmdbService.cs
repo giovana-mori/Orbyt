@@ -2,8 +2,9 @@
 using Pi3.Models;
 using Newtonsoft.Json.Linq;
 using RestSharp;
+using Pi3.Repositories.Service;
 
-namespace Pi3.Repositories.Service
+namespace Pi3.Service
 {
     public class TmdbService : ITmdbService
     {

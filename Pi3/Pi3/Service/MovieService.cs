@@ -1,7 +1,8 @@
 ﻿using MongoDB.Driver;
 using Pi3.Models;
+using Pi3.Repositories.Service;
 
-namespace Pi3.Repositories.Service
+namespace Pi3.Service
 {
     public class MovieService : IMovieService
     {
@@ -29,7 +30,7 @@ namespace Pi3.Repositories.Service
             }
         }
 
-        public async Task<Movie> GetAnyMovieByIdAsync(string id)
+        public async Task<Movie> GetAnyMovieByTmdbIdAsync(int idTmdb)
         {
             var categories = new List<string>
             {
@@ -44,17 +45,14 @@ namespace Pi3.Repositories.Service
             foreach (var category in categories)
             {
                 var collection = _context.GetMovieCollectionByCategory(category);
-                var movie = await collection.Find(m => m.Id == id).FirstOrDefaultAsync();
+                var movie = await collection.Find(m => m.IdTmdb == idTmdb).FirstOrDefaultAsync();
                 if (movie != null)
                 {
-                    return movie; 
+                    return movie;
                 }
             }
 
             return null;
         }
-
-        
-
     }
 }
