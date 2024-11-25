@@ -7,7 +7,7 @@ namespace Pi3.Repositories.Service
     {
         public Task<List<Movie>> GetMoviesAsync();
         public Task<Movie> GetAnyMovieByTmdbIdAsync(int idTmdb);
-
+        public Task<List<Movie>> GetMoviesByCollectionAsync(string collectionName);
         public Task FetchAndSaveMovies(string category, List<Movie> movies);
 
 

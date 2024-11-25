@@ -12,7 +12,6 @@ namespace Pi3.Service
         {
             _context = context;
         }
-
         public async Task<List<Movie>> GetMoviesAsync() =>
             await _context.GetMovieCollectionByCategory("FilmesPopulares").Find(movie => true).ToListAsync();
 
@@ -36,7 +35,6 @@ namespace Pi3.Service
             {
                 "FilmesPopulares",
                 "FilmesEmCartaz",
-                "FilmesLancamentos",
                 "FilmesMelhoresAvaliados",
                 "FilmesTrendingDia",
                 "FilmesTrendingSemana"
@@ -53,6 +51,15 @@ namespace Pi3.Service
             }
 
             return null;
+        }
+        public async Task<List<Movie>> GetMoviesByCollectionAsync(string collectionName)
+        {
+            var collection = _context.GetMovieCollectionByCategory(collectionName);
+            if (collection == null)
+            {
+                throw new ArgumentException("Categoria inválida");
+            }
+            return await collection.Find(_ => true).ToListAsync();
         }
     }
 }

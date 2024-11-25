@@ -58,5 +58,19 @@ namespace Pi3.Controllers
             return Ok(movie);
 
         }
+
+        [HttpGet("{collectionName}")]
+        public async Task<IActionResult> GetMoviesByCollection(string collectionName)
+        {
+            try
+            {
+                var movies = await _movieService.GetMoviesByCollectionAsync(collectionName);
+                return Ok(movies);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

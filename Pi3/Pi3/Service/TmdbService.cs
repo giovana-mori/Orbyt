@@ -23,7 +23,6 @@ namespace Pi3.Service
             string url = category switch
             {
                 "FilmesPopulares" => "https://api.themoviedb.org/3/movie/popular",
-                "FilmesLancamentos" => "https://api.themoviedb.org/3/movie/now_playing",
                 "FilmesEmCartaz" => "https://api.themoviedb.org/3/movie/now_playing",
                 "FilmesMelhoresAvaliados" => "https://api.themoviedb.org/3/movie/top_rated",
                 "FilmesTrendingDia" => "https://api.themoviedb.org/3/trending/movie/day",

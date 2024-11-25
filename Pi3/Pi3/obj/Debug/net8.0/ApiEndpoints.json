@@ -380,6 +380,22 @@
   },
   {
     "ContainingType": "Pi3.Controllers.MoviesController",
+    "Method": "GetMoviesByCollection",
+    "RelativePath": "api/Movies/{collectionName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "collectionName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Pi3.Controllers.MoviesController",
     "Method": "FetchAndSaveMovies",
     "RelativePath": "api/Movies/fetch-from-tmdb",
     "HttpMethod": "POST",
