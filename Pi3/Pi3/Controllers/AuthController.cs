@@ -27,32 +27,51 @@ namespace Pi3.Controllers
         {
             var usuario = await _usuarioService.GetByEmail(login.Email);
 
-            if (usuario.IsConfirmed == true)
+            if (usuario != null)
             {
-                if (usuario == null || usuario.Password != login.Password)
+                if (usuario.IsConfirmed == true)
                 {
-                    return Unauthorized();
+                    if (usuario == null || usuario.Password != login.Password)
+                    {
+                        return Unauthorized();
+                    }
+                    var expiration = DateTime.UtcNow.AddMinutes(5);
+
+                    var token = _generateToken.GenerateToken(usuario, expiration);
+
+                    var refresh = await _generateToken.CreateRefreshToken(token, usuario.Id);
+
+                    CookieOptions cookie = Cookie();
+
+                    Response.Cookies.Append("RefreshToken", refresh, cookie);
+                    Response.Cookies.Append("Jwt", token, cookie);
+
+                    return Ok(new { Token = token });
                 }
-                var expiration = DateTime.UtcNow.AddMinutes(5);
-
-                var token = _generateToken.GenerateToken(usuario, expiration);
-
-                var cookie = new CookieOptions
-                {
-                    HttpOnly = true,
-                    Secure = true,
-                    Expires = DateTimeOffset.UtcNow.AddDays(7)
-                };
-
-                Response.Cookies.Append("Jwt", token, cookie);
-
-                return Ok(new { Token = token });
+                return Unauthorized("Confirme email para entrar");
             }
-
-
-            return Unauthorized("Confirme email para entrar");
+            return NotFound("Você não tem uma conta");
         }
 
-        
+        //[HttpPost]
+        //public async Task<ActionResult> RefreshToken()
+        //{
+        //    if(Request.Cookies.TryGetValue("RefreshToken", out var cookie))
+        //    {
+
+        //    }
+        //}
+
+        [ApiExplorerSettings(IgnoreApi = true)]
+        public CookieOptions Cookie()
+        {
+            var cookie = new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = false
+            };
+
+            return cookie;
+        }
     }
 }

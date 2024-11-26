@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Pi3.Filter;
@@ -8,8 +7,6 @@ using Pi3.Repositories;
 using Pi3.Repositories.Service;
 using Pi3.Security;
 using Pi3.Service;
-using System.Security.Cryptography;
-using System.Text;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);

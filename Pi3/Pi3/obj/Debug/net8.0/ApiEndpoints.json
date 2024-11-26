@@ -254,12 +254,12 @@
         "IsRequired": false
       },
       {
-        "Name": "Email",
+        "Name": "Password",
         "Type": "System.String",
         "IsRequired": false
       },
       {
-        "Name": "Password",
+        "Name": "Email",
         "Type": "System.String",
         "IsRequired": false
       },
@@ -269,23 +269,8 @@
         "IsRequired": false
       },
       {
-        "Name": "IsConfirmed",
-        "Type": "System.Boolean",
-        "IsRequired": false
-      },
-      {
-        "Name": "Role",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
         "Name": "ImagemId",
         "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "IsActive",
-        "Type": "System.Boolean",
         "IsRequired": false
       },
       {
@@ -496,12 +481,12 @@
         "IsRequired": false
       },
       {
-        "Name": "Email",
+        "Name": "Password",
         "Type": "System.String",
         "IsRequired": false
       },
       {
-        "Name": "Password",
+        "Name": "Email",
         "Type": "System.String",
         "IsRequired": false
       },
@@ -511,23 +496,8 @@
         "IsRequired": false
       },
       {
-        "Name": "IsConfirmed",
-        "Type": "System.Boolean",
-        "IsRequired": false
-      },
-      {
-        "Name": "Role",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
         "Name": "ImagemId",
         "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "IsActive",
-        "Type": "System.Boolean",
         "IsRequired": false
       },
       {

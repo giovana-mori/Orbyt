@@ -1,5 +1,7 @@
 ﻿using MailKit.Net.Smtp;
 using MimeKit;
+using Pi3.Dtos;
+using Pi3.Mappers;
 using Pi3.Models;
 using Pi3.Repositories;
 
@@ -44,9 +46,11 @@ namespace Pi3.Service
 
         }
 
-        public string EmailToken(Usuario usuario)
+        public string EmailToken(UsuarioDto usuarioDto)
         {
             var expiration = DateTime.UtcNow.AddDays(1);
+
+            var usuario = usuarioDto.ToUsuario();
 
             var token = _generateToken.GenerateToken(usuario, expiration);
 

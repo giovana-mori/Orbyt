@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using Pi3.Dtos;
+using Pi3.Mappers;
 using Pi3.Models;
 using Pi3.Repositories;
 
@@ -15,7 +17,7 @@ namespace Pi3.Service
             _conxtext = conxtext;
         }
 
-        public async Task<Usuario> GetByEmail(string email)
+        public async Task<Usuario?> GetByEmail(string email)
         {
             Usuario usuario = await _conxtext.Usuario.Find(x => x.Email == email).FirstOrDefaultAsync();
 
@@ -38,31 +40,36 @@ namespace Pi3.Service
             return usuario;
         }
 
-        public async Task<Usuario> Post(Usuario usuario, Stream imagemStream, string imagemNome)
+        public async Task<Usuario> Post(UsuarioDto usuarioDto, Stream imagemStream, string imagemNome)
         {
             ObjectId imagemId = await _conxtext.GridFS.UploadFromStreamAsync(imagemNome, imagemStream);
 
-            usuario.ImagemId = imagemId;
+            var usuario = usuarioDto.ToUsuario();
+            
             await _conxtext.Usuario.InsertOneAsync(usuario);
 
             return usuario;
 
         }
-        public async Task Put(string id, Usuario usuario)
+        public async Task Put(string id, UsuarioDto usuarioDto)
         {
             var usuarioImagem = _conxtext.Usuario.Find(x => x.Id == id).FirstOrDefault();
 
-            usuario.ImagemId = usuarioImagem.ImagemId;
+            usuarioDto.ImagemId = usuarioImagem.ImagemId;
+
+            var usuario = usuarioDto.ToUsuario();
 
             var filter = Builders<Usuario>.Filter.Eq(x => x.Id, usuario.Id);
             await _conxtext.Usuario.ReplaceOneAsync(filter, usuario);
         }
 
-        public async Task PutImage(Usuario usuario, Stream imagemStream, string imagemNome)
+        public async Task PutImage(UsuarioDto usuarioDto, Stream imagemStream, string imagemNome)
         {
             ObjectId imagemId = await _conxtext.GridFS.UploadFromStreamAsync(imagemNome, imagemStream);
 
-            usuario.ImagemId = imagemId;
+            usuarioDto.ImagemId = imagemId;
+
+            var usuario = usuarioDto.ToUsuario();
 
             var filter = Builders<Usuario>.Filter.Eq(x => x.Id, usuario.Id);
             await _conxtext.Usuario.ReplaceOneAsync(filter, usuario);

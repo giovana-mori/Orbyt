@@ -1,4 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
+using Pi3.Dtos;
+using Pi3.Mappers;
 using Pi3.Models;
 using Pi3.Repositories;
 using Pi3.Security;
@@ -11,11 +13,14 @@ namespace Pi3.Service
     public class TokenService : IGenerateToken
     {
         private readonly RSA _privateKey;
+        private readonly ContextMongodb _context;
 
-        public TokenService()
+        public TokenService(ContextMongodb contextMongodb)
         {
+            _context = contextMongodb;
             _privateKey = RsakeyUtils.GetPrivateKey("app.key");
         }
+
 
         public string GenerateToken(Usuario usuario, DateTime expiration)
         {
@@ -42,6 +47,18 @@ namespace Pi3.Service
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
+        public async Task<string> CreateRefreshToken(string jwt, string usuarioId)
+        { 
+            DateTime expiration = DateTime.UtcNow.AddDays(1);
+            
+            RefreshToken refresh = new RefreshToken(jwt, expiration, usuarioId);
+
+            await _context.RefreshToken.InsertOneAsync(refresh);
+
+            return refresh.Id;
+        }
+
     }
 }
 

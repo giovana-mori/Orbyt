@@ -1,4 +1,5 @@
-﻿using Pi3.Models;
+﻿using Pi3.Dtos;
+using Pi3.Models;
 
 namespace Pi3.Repositories
 {
@@ -10,11 +11,11 @@ namespace Pi3.Repositories
 
         public Task<Usuario> GetByEmail(string email);
 
-        public Task<Usuario> Post(Usuario usuario, Stream imagemStream, string imagemNome);
+        public Task<Usuario> Post(UsuarioDto usuario, Stream imagemStream, string imagemNome);
 
-        public Task Put(string id, Usuario usuario);
+        public Task Put(string id, UsuarioDto usuario);
 
-        public Task PutImage(Usuario usuario, Stream imagemStream, string imagemNome);
+        public Task PutImage(UsuarioDto usuario, Stream imagemStream, string imagemNome);
 
         public Task<bool> Delete(string id);
     }

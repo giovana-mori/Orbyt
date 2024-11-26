@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Pi3.Dtos;
 using Pi3.Models;
 using Pi3.Repositories;
 
@@ -21,7 +22,7 @@ namespace Pi3.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Cadastro([FromForm] Usuario usuario, [FromForm] IFormFile? imagem)
+        public async Task<ActionResult> Cadastro([FromForm] UsuarioDto usuarioDto, [FromForm] IFormFile? imagem)
         {
             if (imagem == null || imagem.Length == 0)
             {
@@ -37,23 +38,23 @@ namespace Pi3.Controllers
                 );
             }
 
-            var tryCadastro = _usuarioService.GetByEmail(usuario.Email);
+            var tryCadastro = _usuarioService.GetByEmail(usuarioDto.Email);
 
             if (tryCadastro != null)
             {
                 using (var stream = imagem.OpenReadStream())
                 {
-                    usuario = await _usuarioService.Post(usuario, stream, imagem.FileName);
+                    await _usuarioService.Post(usuarioDto, stream, imagem.FileName);
                 }
 
-                var token = _emailService.EmailToken(usuario);
+                var token = _emailService.EmailToken(usuarioDto);
 
                 if (token != null)
                 {
                     string confirmationLink = $"http://localhost:5113/api/cadastro/confirm?token={token}";
 
                     string message = $"<p>Confirme seu cadastro clicando no link abaixo:</p><a href='{confirmationLink}'>Confirmar E-mail</a>";
-                    await _emailService.EmailSender(usuario.Email, message);
+                    await _emailService.EmailSender(usuarioDto.Email, message);
 
 
                     return Ok();

@@ -75,5 +75,13 @@ namespace Pi3.Models
             }
         }
 
+        public IMongoCollection<RefreshToken> RefreshToken
+        {
+            get 
+            {
+                return _database.GetCollection<RefreshToken>("RefreshToken");
+            }
+        }
+
     }
 }

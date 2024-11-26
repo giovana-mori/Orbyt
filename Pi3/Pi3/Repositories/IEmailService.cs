@@ -1,4 +1,5 @@
-﻿using Pi3.Models;
+﻿using Pi3.Dtos;
+using Pi3.Models;
 
 namespace Pi3.Repositories
 {
@@ -6,7 +7,7 @@ namespace Pi3.Repositories
     {
         public Task EmailSender(string email, string message);
 
-        public string EmailToken(Usuario usuario);
+        public string EmailToken(UsuarioDto usuarioDto);
              
     }
 

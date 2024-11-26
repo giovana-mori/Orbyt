@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Pi3.Dtos;
 using Pi3.Models;
 using Pi3.Repositories;
 
@@ -45,9 +46,9 @@ namespace Pi3.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(string id, [FromForm] Usuario usuario, [FromForm] IFormFile? imagem)
+        public async Task<ActionResult> Put(string id, [FromForm] UsuarioDto usuarioDto, [FromForm] IFormFile? imagem)
         {
-            if(id != usuario.Id)
+            if(id != usuarioDto.Id)
             {
                 return BadRequest();
             }
@@ -56,13 +57,13 @@ namespace Pi3.Controllers
             {
                 using(var stream = imagem.OpenReadStream())
                 {
-                    await _usuarioService.PutImage(usuario, stream, imagem.FileName);
+                    await _usuarioService.PutImage(usuarioDto, stream, imagem.FileName);
 
                     return Ok();
                 }
             }
 
-            await _usuarioService.Put(id, usuario);
+            await _usuarioService.Put(id, usuarioDto);
 
             return Ok();
         }
