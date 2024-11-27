@@ -17,7 +17,7 @@ namespace Pi3.Service
             _conxtext = conxtext;
         }
 
-        public async Task<Usuario?> GetByEmail(string email)
+        public async Task<Usuario> GetByEmail(string email)
         {
             Usuario usuario = await _conxtext.Usuario.Find(x => x.Email == email).FirstOrDefaultAsync();
 

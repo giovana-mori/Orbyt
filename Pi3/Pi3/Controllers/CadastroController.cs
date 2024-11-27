@@ -38,26 +38,25 @@ namespace Pi3.Controllers
                 );
             }
 
-            var tryCadastro = _usuarioService.GetByEmail(usuarioDto.Email);
+            var tryCadastro = await _usuarioService.GetByEmail(usuarioDto.Email);
 
-            if (tryCadastro != null)
+            if (tryCadastro == null)
             {
                 using (var stream = imagem.OpenReadStream())
                 {
-                    await _usuarioService.Post(usuarioDto, stream, imagem.FileName);
-                }
+                    var usuario = await _usuarioService.Post(usuarioDto, stream, imagem.FileName);
+                    var token = _emailService.EmailToken(usuario);
 
-                var token = _emailService.EmailToken(usuarioDto);
+                    if (token != null)
+                    {
+                        string confirmationLink = $"http://localhost:5113/api/cadastro/confirm?token={token}";
 
-                if (token != null)
-                {
-                    string confirmationLink = $"http://localhost:5113/api/cadastro/confirm?token={token}";
-
-                    string message = $"<p>Confirme seu cadastro clicando no link abaixo:</p><a href='{confirmationLink}'>Confirmar E-mail</a>";
-                    await _emailService.EmailSender(usuarioDto.Email, message);
+                        string message = $"<p>Confirme seu cadastro clicando no link abaixo:</p><a href='{confirmationLink}'>Confirmar E-mail</a>";
+                        await _emailService.EmailSender(usuarioDto.Email, message);
 
 
-                    return Ok();
+                        return Ok();
+                    }
                 }
             }
             return BadRequest("O email ja esta sendo Usado");

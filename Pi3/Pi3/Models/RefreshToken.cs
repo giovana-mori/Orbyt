@@ -16,7 +16,7 @@ namespace Pi3.Models
         public DateTime ExpireAt { get; set; }
 
         [BsonElement("usuarioId"), BsonRepresentation(BsonType.String)]
-        public string UsuarioId {  get; set; }
+        public string UsuarioId { get; set; }
 
         public bool isExpired()
         {

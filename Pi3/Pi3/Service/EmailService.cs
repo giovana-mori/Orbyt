@@ -11,9 +11,9 @@ namespace Pi3.Service
     {
         private readonly IConfiguration _configuration;
         private readonly ContextMongodb _contextMongodb;
-        private readonly IGenerateToken _generateToken;
+        private readonly ITokenService _generateToken;
 
-        public EmailService(IConfiguration configuration, ContextMongodb contextMongodb, IGenerateToken generateToken)
+        public EmailService(IConfiguration configuration, ContextMongodb contextMongodb, ITokenService generateToken)
         {
             _configuration = configuration;
             _contextMongodb = contextMongodb;
@@ -46,11 +46,9 @@ namespace Pi3.Service
 
         }
 
-        public string EmailToken(UsuarioDto usuarioDto)
+        public string EmailToken(Usuario usuario)
         {
             var expiration = DateTime.UtcNow.AddDays(1);
-
-            var usuario = usuarioDto.ToUsuario();
 
             var token = _generateToken.GenerateToken(usuario, expiration);
 

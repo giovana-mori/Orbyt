@@ -7,7 +7,7 @@ namespace Pi3.Repositories
     {
         public Task EmailSender(string email, string message);
 
-        public string EmailToken(UsuarioDto usuarioDto);
+        public string EmailToken(Usuario usuario);
              
     }
 

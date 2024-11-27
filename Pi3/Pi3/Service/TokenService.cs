@@ -1,4 +1,5 @@
 ﻿using Microsoft.IdentityModel.Tokens;
+using MongoDB.Driver;
 using Pi3.Dtos;
 using Pi3.Mappers;
 using Pi3.Models;
@@ -10,7 +11,7 @@ using System.Security.Cryptography;
 
 namespace Pi3.Service
 {
-    public class TokenService : IGenerateToken
+    public class TokenService : ITokenService
     {
         private readonly RSA _privateKey;
         private readonly ContextMongodb _context;
@@ -59,6 +60,27 @@ namespace Pi3.Service
             return refresh.Id;
         }
 
+        public string? verifyRefreshToken(string id)
+        {
+            RefreshToken? refreshToken = _context.RefreshToken.Find(x => x.Id == id).FirstOrDefault();
+
+            var filter = Builders<RefreshToken>.Filter.Eq(x => x.Id, id);
+
+            string token = null;
+            if (refreshToken != null && !refreshToken.isExpired())
+            {
+                Usuario usuario = _context.Usuario.Find(x => x.Id == refreshToken.UsuarioId).FirstOrDefault();
+                token = this.GenerateToken(usuario, DateTime.UtcNow.AddMinutes(5));
+                refreshToken.Jwt = token;
+                _context.RefreshToken.ReplaceOne(filter, refreshToken);
+            }
+            else if (refreshToken != null)
+            {
+                _context.RefreshToken.DeleteOne(filter);
+            }
+
+            return token;
+        }
     }
 }
 
