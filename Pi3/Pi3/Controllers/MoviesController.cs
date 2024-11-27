@@ -8,68 +8,53 @@ namespace Pi3.Controllers
     [Route("api/[controller]")]
     public class MoviesController : ControllerBase
     {
-        private readonly IMovieService _movieService;
         private readonly ITmdbService _tmdbService;
 
-        public MoviesController(IMovieService movieService, ITmdbService tmdbService)
+        public MoviesController(ITmdbService tmdbService)
         {
-            _movieService = movieService;
             _tmdbService = tmdbService;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<List<Movie>>> GetMovies()
-        {
-            var movies = await _movieService.GetMoviesAsync();
-            if (movies == null || movies.Count == 0)
-            {
-                return NotFound("Nenhum filme encontrado.");
-            }
-            return Ok(movies);
-        }
+        [HttpGet("populares")]
+        public async Task<IActionResult> GetPopularMovies() =>
+            Ok(await _tmdbService.GetPopularMoviesAsync());
 
-        [HttpPost("fetch-from-tmdb")]
-        public async Task<IActionResult> FetchAndSaveMovies([FromQuery] string category)
-        {
-            if (string.IsNullOrEmpty(category))
-            {
-                return BadRequest("A categoria não pode ser vazia.");
-            }
+        [HttpGet("em-cartaz")]
+        public async Task<IActionResult> GetNowPlayingMovies() =>
+            Ok(await _tmdbService.GetNowPlayingMoviesAsync());
 
-            var movies = await _tmdbService.GetMoviesFromTmdbAsync(category);
-            if (movies == null || movies.Count == 0)
-            {
-                return NotFound("Nenhum filme encontrado na TMDb para a categoria especificada.");
-            }
+        [HttpGet("lancamentos")]
+        public async Task<IActionResult> GetUpcomingMovies() =>
+            Ok(await _tmdbService.GetUpcomingMoviesAsync());
 
-            await _movieService.FetchAndSaveMovies(category, movies);
+        [HttpGet("melhores-avaliados")]
+        public async Task<IActionResult> GetTopRatedMovies() =>
+            Ok(await _tmdbService.GetTopRatedMoviesAsync());
 
-            return Ok("Filmes salvos ou atualizados com sucesso.");
-        }
+        [HttpGet("tendencias/{timeWindow}")]
+        public async Task<IActionResult> GetTrendingMovies(string timeWindow) =>
+            Ok(await _tmdbService.GetTrendingMoviesAsync(timeWindow));
 
-        [HttpGet("tmdb/{idTmdb:int}")]
-        public async Task<IActionResult> GetAnyMovieByTmdbId(int idTmdb)
-        {
-            var movie = await _movieService.GetAnyMovieByTmdbIdAsync(idTmdb);
-            if (movie == null)
-            {
-                return NotFound("Filme não encontrado.");
-            }
-            return Ok(movie);
+        [HttpGet("pesquisar")]
+        public async Task<IActionResult> SearchMovies([FromQuery] string nome) =>
+            Ok(await _tmdbService.SearchMoviesAsync(nome));
 
-        }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetMovieDetails(int id) =>
+            Ok(await _tmdbService.GetMovieDetailsAsync(id));
 
-        [HttpGet("{collectionName}")]
-        public async Task<IActionResult> GetMoviesByCollection(string collectionName)
+        [HttpGet("detalhes/{movieId}")]
+        public async Task<IActionResult> GetDetailsById(int movieId)
         {
             try
             {
-                var movies = await _movieService.GetMoviesByCollectionAsync(collectionName);
-                return Ok(movies);
+                var movieDetailsJson = await _tmdbService.GetMovieDetailsAsync(movieId);
+
+                return Ok(movieDetailsJson);
             }
-            catch (ArgumentException ex)
+            catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Erro ao buscar detalhes do filme: {ex.Message}");
             }
         }
     }

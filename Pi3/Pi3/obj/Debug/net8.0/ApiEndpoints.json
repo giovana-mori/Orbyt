@@ -345,35 +345,15 @@
   },
   {
     "ContainingType": "Pi3.Controllers.MoviesController",
-    "Method": "GetMovies",
-    "RelativePath": "api/Movies",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[Pi3.Models.Movie, Pi3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Pi3.Controllers.MoviesController",
-    "Method": "GetMoviesByCollection",
-    "RelativePath": "api/Movies/{collectionName}",
+    "Method": "GetMovieDetails",
+    "RelativePath": "api/Movies/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "collectionName",
-        "Type": "System.String",
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -381,14 +361,60 @@
   },
   {
     "ContainingType": "Pi3.Controllers.MoviesController",
-    "Method": "FetchAndSaveMovies",
-    "RelativePath": "api/Movies/fetch-from-tmdb",
-    "HttpMethod": "POST",
+    "Method": "GetDetailsById",
+    "RelativePath": "api/Movies/detalhes/{movieId}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "category",
+        "Name": "movieId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Pi3.Controllers.MoviesController",
+    "Method": "GetNowPlayingMovies",
+    "RelativePath": "api/Movies/em-cartaz",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Pi3.Controllers.MoviesController",
+    "Method": "GetUpcomingMovies",
+    "RelativePath": "api/Movies/lancamentos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Pi3.Controllers.MoviesController",
+    "Method": "GetTopRatedMovies",
+    "RelativePath": "api/Movies/melhores-avaliados",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Pi3.Controllers.MoviesController",
+    "Method": "SearchMovies",
+    "RelativePath": "api/Movies/pesquisar",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nome",
         "Type": "System.String",
         "IsRequired": false
       }
@@ -397,15 +423,25 @@
   },
   {
     "ContainingType": "Pi3.Controllers.MoviesController",
-    "Method": "GetAnyMovieByTmdbId",
-    "RelativePath": "api/Movies/tmdb/{idTmdb}",
+    "Method": "GetPopularMovies",
+    "RelativePath": "api/Movies/populares",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Pi3.Controllers.MoviesController",
+    "Method": "GetTrendingMovies",
+    "RelativePath": "api/Movies/tendencias/{timeWindow}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "idTmdb",
-        "Type": "System.Int32",
+        "Name": "timeWindow",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],

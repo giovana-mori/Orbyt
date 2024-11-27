@@ -54,27 +54,6 @@ namespace Pi3.Models
             }
         }
 
-        public IMongoCollection<Movie> GetMovieCollectionByCategory(string category)
-        {
-            switch (category)
-            {
-                case "FilmesPopulares":
-                    return _database.GetCollection<Movie>("FilmesPopulares");
-                case "FilmesEmCartaz":
-                    return _database.GetCollection<Movie>("FilmesEmCartaz");
-                case "FilmesLancamentos":
-                    return _database.GetCollection<Movie>("FilmesLancamentos");
-                case "FilmesMelhoresAvaliados":
-                    return _database.GetCollection<Movie>("FilmesMelhoresAvaliados");
-                case "FilmesTrendingDia":
-                    return _database.GetCollection<Movie>("FilmesTrendingDia");
-                case "FilmesTrendingSemana":
-                    return _database.GetCollection<Movie>("FilmesTrendingSemana");
-                default:
-                    throw new ArgumentException("Categoria não reconhecida");
-            }
-        }
-
         public IMongoCollection<RefreshToken> RefreshToken
         {
             get 
