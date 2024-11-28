@@ -7,7 +7,7 @@ function Filter({ children }) {
                 <ul className="flex space-x-3 mx-auto justify-center">
                     { children }
                 </ul>
-                <hr class="w-50 h-1 mx-auto my-4 bg-white border border-white rounded "></hr>
+                <hr class="w-5/6 h-1 mx-auto my-4 border-1 my-3 border-white rounded "></hr>
            </nav>;
 }
 

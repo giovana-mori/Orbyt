@@ -9,6 +9,7 @@ import Streaming from '../components/filters/streaming';
 import Year from '../components/filters/year';
 import OrderBy from '../components/filters/orderby';
 import Review from '../components/filters/review';
+import MovieCatalog from '../components/moviecatalog';
 
 function Filmes() {
     return (
@@ -22,7 +23,17 @@ function Filmes() {
                     <Streaming/>
                     <Year/>
                 </Filter>
-                <ItemFilme />
+                <MovieCatalog>
+                    <ItemFilme /> {/*toda essa parte vai ser mudada por data.map()*/}
+                    <ItemFilme />   {/*ou pelo menos eu acho kkkkkkkk*/}
+                    <ItemFilme />
+                    <ItemFilme />
+                    <ItemFilme />
+                    <ItemFilme />
+                    <ItemFilme />
+                    <ItemFilme />
+                </MovieCatalog>
+                
             </ContainerCard>
         </div>
     );
