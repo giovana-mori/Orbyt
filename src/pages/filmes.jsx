@@ -9,7 +9,7 @@ import Streaming from '../components/filters/streaming';
 import Year from '../components/filters/year';
 import OrderBy from '../components/filters/orderby';
 import Review from '../components/filters/review';
-import MovieCatalog from '../components/moviecatalog';
+import MovieCatalog from '../components/categorycatalog';
 
 function Filmes() {
     return (
