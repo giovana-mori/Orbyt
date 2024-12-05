@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Pi3")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+80817ba2f5f5c55be1342003db5b81ce1bac32f3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+965dec9b323a48cee77fb1f703b17e8dc3ecc3ad")]
 [assembly: System.Reflection.AssemblyProductAttribute("Pi3")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Pi3")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

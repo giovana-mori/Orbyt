@@ -180,7 +180,7 @@
   },
   {
     "ContainingType": "Pi3.Controllers.AvaliacaoController",
-    "Method": "GetReviewsByFilmIdSortedByLikes",
+    "Method": "GetReviewsSortedByLikes",
     "RelativePath": "api/Avaliacao/sort-like/{idTmdb}",
     "HttpMethod": "GET",
     "IsController": true,
