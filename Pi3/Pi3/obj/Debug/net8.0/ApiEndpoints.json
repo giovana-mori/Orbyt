@@ -22,6 +22,22 @@
   },
   {
     "ContainingType": "Pi3.Controllers.AuthController",
+    "Method": "EsqueceuSenha",
+    "RelativePath": "api/auth/password-reset",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Pi3.Controllers.AuthController",
     "Method": "RefreshToken",
     "RelativePath": "api/auth/refresh",
     "HttpMethod": "POST",
@@ -31,16 +47,42 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Pi3.Controllers.AuthController",
+    "Method": "ResetarSenha",
+    "RelativePath": "api/auth/resetar-senha/{email}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "Senha",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "SenhaConfimar",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Pi3.Controllers.AvaliacaoController",
     "Method": "CreateReview",
-    "RelativePath": "api/Avaliacao",
+    "RelativePath": "api/Avaliacao/criar-avaliacao",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "avaliacao",
-        "Type": "Pi3.Models.Avaliacao",
+        "Type": "Pi3.Dtos.AvaliacaoCreateDto",
         "IsRequired": true
       }
     ],
@@ -48,75 +90,8 @@
   },
   {
     "ContainingType": "Pi3.Controllers.AvaliacaoController",
-    "Method": "GetAllReviews",
-    "RelativePath": "api/Avaliacao",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[Pi3.Models.Avaliacao, Pi3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Pi3.Controllers.AvaliacaoController",
-    "Method": "GetReviewById",
-    "RelativePath": "api/Avaliacao/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Pi3.Models.Avaliacao",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "Pi3.Controllers.AvaliacaoController",
-    "Method": "UpdateReview",
-    "RelativePath": "api/Avaliacao/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "updatedReview",
-        "Type": "Pi3.Models.Avaliacao",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Pi3.Controllers.AvaliacaoController",
-    "Method": "DeleteReview",
-    "RelativePath": "api/Avaliacao/{id}",
+    "Method": "DisableAvaliacao",
+    "RelativePath": "api/Avaliacao/disable-avaliacao/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -131,62 +106,9 @@
   },
   {
     "ContainingType": "Pi3.Controllers.AvaliacaoController",
-    "Method": "UpdateExibir",
-    "RelativePath": "api/Avaliacao/{id}/Atualizar_exibir_false_id_idUsuario",
-    "HttpMethod": "PATCH",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "idUsuario",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Pi3.Controllers.AvaliacaoController",
-    "Method": "DislikeReview",
-    "RelativePath": "api/Avaliacao/{id}/dislike",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Pi3.Controllers.AvaliacaoController",
-    "Method": "LikeReview",
-    "RelativePath": "api/Avaliacao/{id}/like",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Pi3.Controllers.AvaliacaoController",
-    "Method": "UpdateExibirForMultipleIds",
-    "RelativePath": "api/Avaliacao/Atualizar_exibir_array_usuario",
-    "HttpMethod": "PATCH",
+    "Method": "DisableManyIsActive",
+    "RelativePath": "api/Avaliacao/disable-multiplos",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -200,8 +122,24 @@
   },
   {
     "ContainingType": "Pi3.Controllers.AvaliacaoController",
+    "Method": "DislikeReview",
+    "RelativePath": "api/Avaliacao/dislike{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Pi3.Controllers.AvaliacaoController",
     "Method": "GetReviewsByFilmId",
-    "RelativePath": "api/Avaliacao/filme/{idTmdb}",
+    "RelativePath": "api/Avaliacao/filme-reviews/{idTmdb}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -226,8 +164,24 @@
   },
   {
     "ContainingType": "Pi3.Controllers.AvaliacaoController",
+    "Method": "LikeReview",
+    "RelativePath": "api/Avaliacao/like/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Pi3.Controllers.AvaliacaoController",
     "Method": "GetReviewsByFilmIdSortedByLikes",
-    "RelativePath": "api/Avaliacao/filme/{idTmdb}/Ordem_MaisLikes",
+    "RelativePath": "api/Avaliacao/sort-like/{idTmdb}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -242,18 +196,33 @@
   },
   {
     "ContainingType": "Pi3.Controllers.AvaliacaoController",
-    "Method": "GetReviewsByUserId",
-    "RelativePath": "api/Avaliacao/usuario/{idUsuario}",
-    "HttpMethod": "GET",
+    "Method": "UpdateReview",
+    "RelativePath": "api/Avaliacao/update-avaliacao/{id}",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "idUsuario",
+        "Name": "id",
         "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedReview",
+        "Type": "Pi3.Dtos.AvaliacaoUpdateDto",
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Pi3.Controllers.AvaliacaoController",
+    "Method": "GetReviewsByUserId",
+    "RelativePath": "api/Avaliacao/usuario-review",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.List\u00601[[Pi3.Models.Avaliacao, Pi3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
@@ -363,22 +332,6 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Pi3.Controllers.MoviesController",
-    "Method": "GetDetailsById",
-    "RelativePath": "api/Movies/detalhes/{movieId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "movieId",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -591,6 +544,80 @@
         "Name": "id",
         "Type": "System.String",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Pi3.Controllers.UsuariosController",
+    "Method": "AddToFavorite",
+    "RelativePath": "api/Usuarios/favorite",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "NomeFilme",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IdTmdb",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Pi3.Controllers.UsuariosController",
+    "Method": "RemoveFavorite",
+    "RelativePath": "api/Usuarios/remove-favorite/{tmdbId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tmdbId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Pi3.Controllers.UsuariosController",
+    "Method": "RemoveWatchList",
+    "RelativePath": "api/Usuarios/remove-watchlist/{tmdbId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tmdbId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Pi3.Controllers.UsuariosController",
+    "Method": "AddToWatchList",
+    "RelativePath": "api/Usuarios/watch-list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "NomeFilme",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IdTmdb",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

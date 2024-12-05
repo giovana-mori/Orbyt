@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 public class TmdbService : ITmdbService
 {
     private readonly HttpClient _httpClient;
-    private readonly string _apiKey = "7defae6b176ce3140a5cc0847375679f";
+    private readonly string _apiKey = Environment.GetEnvironmentVariable("apiKey", EnvironmentVariableTarget.User); 
     private readonly string _language = "pt-BR";
 
     public TmdbService(HttpClient httpClient)

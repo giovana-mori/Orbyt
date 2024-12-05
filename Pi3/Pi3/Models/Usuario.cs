@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
+using Microsoft.AspNetCore.Identity;
 
 namespace Pi3.Models
 {
@@ -15,7 +16,7 @@ namespace Pi3.Models
         [BsonElement("email"), BsonRepresentation(BsonType.String)]
         public string Email { get; set; }
 
-        [BsonElement("password"),  BsonRepresentation(BsonType.String)]
+        [BsonElement("password"), BsonRepresentation(BsonType.String)]
         public string Password { get; set; }
 
         [BsonElement("celular"), BsonRepresentation(BsonType.String)]
@@ -31,6 +32,33 @@ namespace Pi3.Models
 
         [BsonElement("isActive"), BsonRepresentation(BsonType.Boolean)]
         public bool IsActive { get; set; } = true;
+
+        [BsonElement("watchList")]
+        public List<WatchList>? WatchList { get; set; } = new List<WatchList>();
+
+        [BsonElement("favorite")]
+        public List<Favorite>? Favorite { get; set; } = new List<Favorite>();
+
+        public void SenhaSecure()
+        {
+            var hasher = new PasswordHasher<object>();
+
+            Password = hasher.HashPassword(this, Password);
+        }
+
+        public bool ValidarSenha(string password)
+        {
+            var validate = new PasswordHasher<object>();
+            
+            var senha = validate.VerifyHashedPassword(this, Password, password);
+
+            if(senha == PasswordVerificationResult.Success)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 
 }

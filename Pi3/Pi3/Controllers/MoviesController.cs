@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Pi3.Models;
-using Pi3.Repositories.Service;
 
 namespace Pi3.Controllers
 {
@@ -42,20 +40,5 @@ namespace Pi3.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetMovieDetails(int id) =>
             Ok(await _tmdbService.GetMovieDetailsAsync(id));
-
-        [HttpGet("detalhes/{movieId}")]
-        public async Task<IActionResult> GetDetailsById(int movieId)
-        {
-            try
-            {
-                var movieDetailsJson = await _tmdbService.GetMovieDetailsAsync(movieId);
-
-                return Ok(movieDetailsJson);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Erro ao buscar detalhes do filme: {ex.Message}");
-            }
-        }
     }
 }

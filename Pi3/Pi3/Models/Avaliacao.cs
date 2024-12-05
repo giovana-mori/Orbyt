@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
+using System.ComponentModel.DataAnnotations;
 
 namespace Pi3.Models
 {
@@ -9,25 +10,29 @@ namespace Pi3.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; } 
 
-        [BsonElement("IdTmdb")]
+        [BsonElement("idTmdb")]
         public int IdTmdb { get; set; } 
 
-        [BsonElement("IdUsuario")]
-        public string IdUsuario { get; set; } = string.Empty; 
+        [BsonElement("idUsuario")]
+        public string? IdUsuario { get; set; } 
 
-        [BsonElement("Comentario")]
-        public string Comentario { get; set; } = string.Empty; 
+        [BsonElement("comentario")]
+        public string Comentario { get; set; } = string.Empty;
 
-        [BsonElement("Likes")]
-        public int Likes { get; set; } 
+        [Range(0, 5)]
+        [BsonElement("nota")]
+        public double Nota {  get; set; }
 
-        [BsonElement("Dislikes")]
-        public int Dislikes { get; set; } 
+        [BsonElement("likes")]
+        public ulong Likes { get; set; } = 0;
 
-        [BsonElement("Spoiler")] 
-        public bool Spoiler { get; set; } 
+        [BsonElement("dislikes")]
+        public ulong Dislikes { get; set; } = 0;
 
-        [BsonElement("Exibir")] 
-        public bool Exibir { get; set; } = true;
+        [BsonElement("spoiler")] 
+        public bool Spoiler { get; set; } = false;
+
+        [BsonElement("isActive")] 
+        public bool isActive { get; set; } = true;
     }
 }

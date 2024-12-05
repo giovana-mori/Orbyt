@@ -1,22 +1,43 @@
-﻿using MongoDB.Driver;
+﻿using Microsoft.IdentityModel.Tokens;
+using MongoDB.Driver;
+using Pi3.Dtos;
+using Pi3.Mappers;
 using Pi3.Models;
 using Pi3.Repositories.Service;
+using System.IdentityModel.Tokens.Jwt;
+using System.Net;
+using System.Security.Claims;
 
 namespace Pi3.Service
 {
     public class AvaliacaoService : IAvaliacaoService
     {
         private readonly IMongoCollection<Avaliacao> _avaliacoesCollection;
+        private readonly TokenValidationParameters _tokenValidationParameters;
 
-        public AvaliacaoService(ContextMongodb context)
+        public AvaliacaoService(ContextMongodb context, TokenValidationParameters tokenValidationParameters)
         {
             _avaliacoesCollection = context.Avaliacao;
+            _tokenValidationParameters = tokenValidationParameters;
         }
 
-        public async Task<Avaliacao> CreateReviewAsync(Avaliacao avaliacao)
+        public async Task<Avaliacao>? CreateReviewAsync(AvaliacaoCreateDto avaliacaoDto, string jwt)
         {
-            await _avaliacoesCollection.InsertOneAsync(avaliacao);
-            return avaliacao;
+            var tokenHandler = new JwtSecurityTokenHandler();
+
+            var principal = tokenHandler.ValidateToken(jwt, _tokenValidationParameters, out var validatedToken);
+            if (validatedToken is JwtSecurityToken token)
+            {
+                var idUsuario = principal.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+                var avaliacao = AvaliacaoMapper.FromAvaliacaoDto(avaliacaoDto);
+
+                avaliacao.IdUsuario = idUsuario;
+
+                await _avaliacoesCollection.InsertOneAsync(avaliacao);
+                return avaliacao;
+            }
+            return null;
         }
 
         public async Task<Avaliacao> GetReviewByIdAsync(string id)
@@ -24,47 +45,62 @@ namespace Pi3.Service
             return await _avaliacoesCollection.Find(a => a.Id == id).FirstOrDefaultAsync();
         }
 
-        public async Task<List<Avaliacao>> GetAllReviewsAsync()
+        public async Task<List<Avaliacao>?> GetReviewsByUserIdAsync(string jwt)
         {
-            return await _avaliacoesCollection.Find(a => true).ToListAsync();
-        }
+            var tokenHandler = new JwtSecurityTokenHandler();
 
-        public async Task<List<Avaliacao>> GetReviewsByUserIdAsync(string idUsuario)
-        {
-            return await _avaliacoesCollection.Find(a => a.IdUsuario == idUsuario && a.Exibir).ToListAsync();
+            var principal = tokenHandler.ValidateToken(jwt, _tokenValidationParameters, out var validatedToken);
+            if (validatedToken is JwtSecurityToken token)
+            {
+                var idUsuario = principal.FindFirst(ClaimTypes.NameIdentifier).Value;
+                return await _avaliacoesCollection.Find(a => a.IdUsuario == idUsuario && a.isActive).ToListAsync();
+            }
+            return null;
         }
 
         public async Task<List<Avaliacao>> GetReviewsByFilmIdAsync(int idTmdb)
         {
-            return await _avaliacoesCollection.Find(a => a.IdTmdb == idTmdb && a.Exibir).ToListAsync();
+            return await _avaliacoesCollection.Find(a => a.IdTmdb == idTmdb && a.isActive).ToListAsync();
         }
 
-        public async Task<bool> UpdateReviewAsync(string id, Avaliacao updatedReview)
+        public async Task<bool> UpdateReviewAsync(string id, AvaliacaoUpdateDto updatedReview)
         {
-            updatedReview.Id = id;
-            var result = await _avaliacoesCollection.ReplaceOneAsync(a => a.Id == id, updatedReview);
+            var filter = Builders<Avaliacao>.Filter.Eq(x=> x.Id, id);
+            var update = Builders<Avaliacao>.Update
+                .Set(x => x.Comentario, updatedReview.Comentario)
+                .Set(x => x.Nota, updatedReview.Nota)
+                .Set(x => x.Spoiler, updatedReview.Spoiler);
+
+            var result = await _avaliacoesCollection.UpdateOneAsync(filter, update);
             return result.MatchedCount > 0;
         }
 
-        public async Task<bool> UpdateExibirAsync(string id, string idUsuario)
+        public async Task<bool> Disable(string id, string cookie)
         {
 
-            var filter = Builders<Avaliacao>.Filter.And(
+            var tokenHandler = new JwtSecurityTokenHandler();
+
+            var principal = tokenHandler.ValidateToken(cookie, _tokenValidationParameters, out var validatedToken);
+            if (validatedToken is JwtSecurityToken token)
+            {
+                var idUsuario = principal.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+                var filter = Builders<Avaliacao>.Filter.And(
                 Builders<Avaliacao>.Filter.Eq(a => a.Id, id),
-                Builders<Avaliacao>.Filter.Eq(a => a.IdUsuario, idUsuario)
-            );
+                Builders<Avaliacao>.Filter.Eq(a => a.IdUsuario, idUsuario));
 
-            var update = Builders<Avaliacao>.Update.Set(a => a.Exibir, false);
+                var update = Builders<Avaliacao>.Update.Set(a => a.isActive, false);
 
-            var result = await _avaliacoesCollection.UpdateOneAsync(filter, update);
-
-            return result.ModifiedCount > 0;
+                var result = await _avaliacoesCollection.UpdateOneAsync(filter, update);
+                return result.ModifiedCount > 0;
+            }
+            return false;
         }
 
-        public async Task<int> UpdateExibirForMultipleIdsAsync(string[] ids)
+        public async Task<int> DisableIsActives(string[] ids)
         {
             var filter = Builders<Avaliacao>.Filter.In(a => a.Id, ids);
-            var update = Builders<Avaliacao>.Update.Set(a => a.Exibir, false);
+            var update = Builders<Avaliacao>.Update.Set(a => a.isActive, false);
             var result = await _avaliacoesCollection.UpdateManyAsync(filter, update);
             return (int)result.ModifiedCount;
         }
@@ -81,22 +117,17 @@ namespace Pi3.Service
 
             return reviews;
         }
-        public async Task<bool> DeleteReviewAsync(string id)
-        {
-            var result = await _avaliacoesCollection.DeleteOneAsync(a => a.Id == id);
-            return result.DeletedCount > 0;
-        }
 
         public async Task<bool> LikeReviewAsync(string id)
         {
-            var update = Builders<Avaliacao>.Update.Inc(a => a.Likes, 1);
+            var update = Builders<Avaliacao>.Update.Inc(a =>(int)a.Likes, 1);
             var result = await _avaliacoesCollection.UpdateOneAsync(a => a.Id == id, update);
             return result.MatchedCount > 0;
         }
 
         public async Task<bool> DislikeReviewAsync(string id)
         {
-            var update = Builders<Avaliacao>.Update.Inc(a => a.Dislikes, 1);
+            var update = Builders<Avaliacao>.Update.Inc(a => (int)a.Dislikes, 1);
             var result = await _avaliacoesCollection.UpdateOneAsync(a => a.Id == id, update);
             return result.MatchedCount > 0;
         }

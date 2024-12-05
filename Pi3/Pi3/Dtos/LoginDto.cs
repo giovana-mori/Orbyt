@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Pi3.Models
+namespace Pi3.Dtos
 {
-    public class LoginModel
+    public class LoginDto
     {
         [Required]
         public string Email { get; set; }

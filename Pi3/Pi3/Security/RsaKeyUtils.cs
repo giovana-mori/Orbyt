@@ -10,7 +10,6 @@ namespace Pi3.Security
             var primaryKey = File.ReadAllText(caminho);
             rsa.ImportFromPem(primaryKey);
             return rsa;
-            //as
         }
 
         public static RSA GetPublicKey(string caminho) 

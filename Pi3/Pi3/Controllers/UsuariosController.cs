@@ -6,19 +6,16 @@ using Pi3.Repositories;
 
 namespace Pi3.Controllers
 {
-    
+
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
     public class UsuariosController : ControllerBase
     {
-
-        private readonly ContextMongodb _conxtext;
         private readonly IUsuarioService _usuarioService;
 
         public UsuariosController(ContextMongodb conxtext, IUsuarioService usuario)
         {
-            _conxtext = conxtext;
             _usuarioService = usuario;
         }
 
@@ -29,7 +26,7 @@ namespace Pi3.Controllers
 
             return Ok(usuario);
         }
-        
+
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Usuario>> GetById(string id)
@@ -48,14 +45,14 @@ namespace Pi3.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(string id, [FromForm] UsuarioDto usuarioDto, [FromForm] IFormFile? imagem)
         {
-            if(id != usuarioDto.Id)
+            if (id != usuarioDto.Id)
             {
                 return BadRequest();
             }
 
             if (imagem != null && imagem.Length > 0)
             {
-                using(var stream = imagem.OpenReadStream())
+                using (var stream = imagem.OpenReadStream())
                 {
                     await _usuarioService.PutImage(usuarioDto, stream, imagem.FileName);
 
@@ -68,6 +65,66 @@ namespace Pi3.Controllers
             return Ok();
         }
 
+        [HttpPost("watch-list")]
+        public async Task<IActionResult> AddToWatchList([FromForm] WatchFavoriteDto watchListDto)
+        {
+            Request.Cookies.TryGetValue("Jwt", out var cookie);
+            if (cookie != null)
+            {
+                List<WatchList> usuarioList = await _usuarioService.AddWatchList(watchListDto, cookie);
+                if (usuarioList != null)
+                {
+                    return Ok(usuarioList);
+                }
+            }
+            return BadRequest();
+        }
+
+        [HttpDelete("remove-watchlist/{tmdbId}")]
+        public async Task<IActionResult> RemoveWatchList([FromRoute] int tmdbId)
+        {
+            Request.Cookies.TryGetValue("jwt", out var cookie);
+            if (cookie != null)
+            {
+                bool tryRemove = await _usuarioService.RemoveFromWatchList(cookie, tmdbId);
+                if (tryRemove)
+                {
+                    return NoContent();
+                }
+            }
+            return BadRequest();
+        }
+
+        [HttpPost("favorite")]
+        public async Task<IActionResult> AddToFavorite([FromForm] WatchFavoriteDto watchFavorite)
+        {
+            Request.Cookies.TryGetValue("Jwt", out var cookie);
+            if (cookie != null)
+            {
+                List<Favorite> usuarioList = await _usuarioService.AddFavorites(watchFavorite, cookie);
+                if (usuarioList != null)
+                {
+                    return Ok(usuarioList);
+                }
+            }
+            return BadRequest();
+        }
+
+        [HttpDelete("remove-favorite/{tmdbId}")]
+        public async Task<IActionResult> RemoveFavorite([FromRoute] int tmdbId)
+        {
+            Request.Cookies.TryGetValue("jwt", out var cookie);
+            if (cookie != null)
+            {
+                bool tryRemove = await _usuarioService.RemoveFromFavorite(cookie, tmdbId);
+                if (tryRemove)
+                {
+                    return NoContent();
+                }
+            }
+            return BadRequest();
+        }
+
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(string id)
         {
@@ -78,7 +135,7 @@ namespace Pi3.Controllers
                 return BadRequest();
             }
 
-            return Ok();
+            return NoContent();
         }
     }
 }

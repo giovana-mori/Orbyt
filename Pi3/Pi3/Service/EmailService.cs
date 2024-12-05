@@ -20,7 +20,7 @@ namespace Pi3.Service
             _generateToken = generateToken;
         }
 
-        public async Task EmailSender(string email, string message)
+        public async Task EmailSender(string email, string message, string subject)
         {
 
 
@@ -31,9 +31,9 @@ namespace Pi3.Service
 
 
             var mensagem = new MimeMessage();
-            mensagem.From.Add(new MailboxAddress("teste", fromEmail));
+            mensagem.From.Add(new MailboxAddress("Owner", fromEmail));
             mensagem.To.Add(MailboxAddress.Parse(email));
-            mensagem.Subject = "Confirmar Email";
+            mensagem.Subject = subject;
             var builder = new BodyBuilder { TextBody = string.Empty, HtmlBody = message };
             mensagem.Body = builder.ToMessageBody();
 

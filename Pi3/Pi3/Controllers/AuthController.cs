@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Pi3.Dtos;
 using Pi3.Models;
 using Pi3.Repositories;
 
@@ -12,18 +13,18 @@ namespace Pi3.Controllers
 
         private readonly IUsuarioService _usuarioService;
         private readonly ITokenService _generateToken;
-        private readonly TokenValidationParameters _validationParameters;
+        private readonly IEmailService _emailService;
 
-        public AuthController(IUsuarioService usuarioService, IConfiguration config, ITokenService generateToken, TokenValidationParameters tokenValidationParameters)
+        public AuthController(IUsuarioService usuarioService, IConfiguration config, ITokenService generateToken, IEmailService emailService)
         {
             _usuarioService = usuarioService;
             _generateToken = generateToken;
-            _validationParameters = tokenValidationParameters;
+            _emailService = emailService;
         }
 
 
         [HttpPost("login")]
-        public async Task<ActionResult> Login([FromForm] LoginModel login)
+        public async Task<ActionResult> Login([FromForm] LoginDto login)
         {
             var usuario = await _usuarioService.GetByEmail(login.Email);
 
@@ -31,7 +32,7 @@ namespace Pi3.Controllers
             {
                 if (usuario.IsConfirmed == true)
                 {
-                    if (usuario == null || usuario.Password != login.Password)
+                    if (!usuario.ValidarSenha(login.Password))
                     {
                         return Unauthorized();
                     }
@@ -46,25 +47,57 @@ namespace Pi3.Controllers
                     Response.Cookies.Append("RefreshToken", refresh, cookie);
                     Response.Cookies.Append("Jwt", token, cookie);
 
-                    return Ok(new { Token = token });
+                    return NoContent();
                 }
                 return Unauthorized("Confirme email para entrar");
             }
             return NotFound("Você não tem uma conta");
         }
 
+        [HttpPost("password-reset")]
+        public async Task<IActionResult> EsqueceuSenha([FromForm] string email)
+        {
+            var tryEmail = await _usuarioService.GetByEmail(email);
+
+            if (tryEmail != null)
+            {
+                string paginaLink = $"http://localhost:3030/resetar-senha?email={email}";
+
+                string message = $"<p>clique no link abaixo para alterar a sua senha:</p><a href='{paginaLink}'>Alterar senha</a>";
+                await _emailService.EmailSender(email, message, "Esqueceu a sua senha");
+
+                return NoContent();
+            }
+            return BadRequest("Voce nao esta registrado");
+        }
+
+        [HttpPut("resetar-senha/{email}")]
+        public async Task<IActionResult> ResetarSenha(string email, [FromForm] AlterarSenhaDto alterarSenha)
+        {
+            if(alterarSenha.Senha == alterarSenha.SenhaConfimar)
+            {
+                var usuario = await _usuarioService.GetByEmail(email);
+                var resultUpdate =await _usuarioService.PutSenha(usuario, alterarSenha.Senha);
+                if (resultUpdate)
+                {
+                    return NoContent();
+                }
+            }
+            return BadRequest("Senha nao batem");
+        }
+
         [HttpPost("refresh")]
-        public async Task<ActionResult> RefreshToken()
+        public ActionResult RefreshToken()
         {
             if (Request.Cookies.TryGetValue("RefreshToken", out var cookie))
             {
-                string jwt = _generateToken.verifyRefreshToken(cookie);
+                string? jwt = _generateToken.verifyRefreshToken(cookie);
 
                 if(jwt != null)
                 {
                     CookieOptions cookieOptions = Cookie();
                     Response.Cookies.Append("Jwt", jwt, cookieOptions);
-                    return Ok("");
+                    return NoContent();
                 }
                 else
                 {
