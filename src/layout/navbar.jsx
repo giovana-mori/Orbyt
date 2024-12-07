@@ -1,12 +1,23 @@
 /* eslint-disable */
 
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 
 function Navbar() {
-  const handleSearch = (event) => {
-    event.preventDefault();
-    // Lógica de busca aqui
+  const [searchDetails, setSearchDetails] = useState({ text: "" });
+  const [search, setSearch] = useState(null);
+
+  const changeHandler = (e) => {
+    if (searchDetails != null) {
+      const { name, value } = e.target;
+      setSearchDetails((prevDetails) => ({ ...prevDetails, [name]: value }));
+    }
+  };
+
+  const submitHandler = async () => {
+    if (searchDetails.text.trim() !== "") {
+      setSearch(searchDetails);
+    }
   };
 
   return (
@@ -20,26 +31,32 @@ function Navbar() {
         </Link>
         <div className="flex items-center mx-4 gap-2 flex-1 max-w-lg justify-center">
           <div className="relative w-full max-w-lg">
-            <input
-              type="text"
-              placeholder="Busca..."
-              onChange={handleSearch}
-              className="w-full text-black text-base rounded-md py-2 pr-10 pl-2 bg-gray-200 border-primary border-2 focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-            <svg
-              className="absolute top-2 right-3 w-5 h-7 text-primary"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 20 20"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+            <form onSubmit={submitHandler}>
+              <input
+                type="text"
+                name="text"
+                value={searchDetails.text}
+                onChange={changeHandler}
+                placeholder="Busca..."
+                className="w-full text-black text-base rounded-full py-0.5 pr-10 pl-2 bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-            </svg>
+              <svg
+                className="absolute top-2 right-1.5 w-3 h-3 text-gray-500"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                />
+                <input type="submit" />
+              </svg>
+            </form>
+            {search && <Navigate to="/pesquisa" state={search} replace />}
           </div>
         </div>
         <div className="flex space-x-6">
@@ -74,6 +91,12 @@ function Navbar() {
               {item}
             </Link>
           ))}
+          <Link
+            to="/registro"
+            className="text-white font-normal hover:underline font-bebas leading-[normal] text-2xl text-right"
+          >
+            CRIAR CONTA
+          </Link>
         </div>
       </div>
     </nav>

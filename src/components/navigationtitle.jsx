@@ -2,10 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function NavigationTitle({ title }) {
-  const navigate = useNavigate(); // Hook para navegar entre páginas
+  const navigate = useNavigate();
 
   const handleGoBack = () => {
-    navigate(-1); // Voltar para a página anterior no histórico
+    navigate('/filmes');
   };
 
   return (

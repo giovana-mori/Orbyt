@@ -1,27 +1,27 @@
 /* eslint-disable */
 import React from "react";
-import BtnFavourite from "./btnfavourite";
 import { Link } from "react-router-dom";
+import BtnFavourite from "./btnfavourite";
 
 export default function PrevFilme(
-    {
-        titulo = "Titulo do filme",
-        descricao = "Descrição do filme",
-        genero = [],
-        nota = 5,
-    }
+  {
+    titulo = "Titulo do filme",
+    descricao = "Descrição do filme",
+    genero = [],
+    nota = 5,
+  },
 ) {
-    return (
-        <div className="flex flex-col gap-2 max-w-96">
-            <div>
-                <h2 className="text-4xl font-semibold text-white">{titulo}</h2>
-            </div>
-            <div className="flex flex-row gap-2" >
-                {
-                    genero.map((gen, index) => (
-                        <div key={index} className="min-w-28 p-1 text-center text-white font-normal text-sm bg-black rounded-md bg-opacity-50 shadow">
-                            {gen}
-                        </div>
+  return (
+    <div className="flex flex-col gap-2 max-w-96">
+      <div>
+        <h2 className="text-4xl font-semibold text-white">{titulo}</h2>
+      </div>
+      <div className="flex flex-row gap-2">
+        {
+                    genero.map((gen) => (
+                      <div key={gen} className="min-w-28 p-1 text-center text-white font-normal text-sm bg-black rounded-md bg-opacity-50 shadow">
+                        {gen}
+                      </div>
                     ))
                 }
             </div>
