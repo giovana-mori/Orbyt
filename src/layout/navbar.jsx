@@ -11,7 +11,7 @@ function Navbar() {
 
   return (
     <nav className="bg-black shadow-md">
-      <div className="container mx-auto flex items-center max-w-7xl justify-between py-2 px-4">
+      <div className="container mx-auto flex items-center justify-between py-2">
         <Link to="/">
           <div className="flex items-center gap-1">
             <img src="img/logo_nav.png" alt="Logo" className="h-20" />
@@ -45,14 +45,14 @@ function Navbar() {
         <div className="flex space-x-6">
           <Link
             to="login"
-            className="text-white font-bebas bg-primary hover:bg-opacity-35 font-medium rounded-lg  tracking-wider text-xl px-4 py-1 text-center"
+            className="text-white transition-all font-bebas bg-primary hover:bg-opacity-35 font-medium rounded-lg  tracking-wider text-xl px-4 py-1 text-center"
           >
             ENTRAR
           </Link>
         </div>
       </div>
       <div className="bg-[#5e52aa33]">
-        <div className="container mx-auto flex items-center max-w-7xl justify-between gap-[2%] py-2 px-4">
+        <div className="container mx-auto flex items-center justify-evenly gap-[2%] py-2">
           {[
             "LANÇAMENTOS",
             "AVENTURA",

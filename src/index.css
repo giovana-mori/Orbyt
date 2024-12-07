@@ -44,3 +44,10 @@ code {
   color: blueviolet;
   font-weight: 700;
 }
+
+
+.container{
+  max-width: 88rem !important;
+  padding-left: 15px;
+  padding-right: 15px;
+}

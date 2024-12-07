@@ -13,9 +13,9 @@ export default function BannerHome(
     }
 ) {
     return (
-        <div className="h-screen bg-cover bg-center bg-no-repeat py-20" style={{ backgroundImage: `url(${imgpath})` }}>
+        <div className="h-screen bg-cover bg-center relative bg-no-repeat py-20 before:absolute before:bottom-0 before:left-0 before:z-10 before:block before:h-full before:w-3/5 before:bg-gradient-to-r before:from-black before:to-ing-neutral-700/0 before:opacity-85 before:content-[&quot;&quot;]" style={{ backgroundImage: `url(${imgpath})` }}>
             <div className="container mx-auto px-4">
-                <div>
+                <div className="z-20 relative">
                     <PrevFilme titulo={title} genero={genero} descricao={description} nota={nota} />
                 </div>
                 <div>

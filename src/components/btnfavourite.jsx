@@ -15,10 +15,10 @@ function BtnFavourite({ active = false }) {
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        fill={isActive ? "purple" : "none"}
+        fill={isActive ? "#5f53ab" : "none"}
         viewBox="0 0 24 24"
         strokeWidth={1.5}
-        stroke={isActive ? "purple" : "black"}
+        stroke={isActive ? "#5f53ab" : "black"}
         className="size-6"
       >
         <path

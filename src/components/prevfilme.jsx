@@ -52,7 +52,7 @@ export default function PrevFilme(
                 <Link to="/sobre" className="bg-white text-black font-semibold text-base px-4 py-2 rounded-md">
                     Sobre
                 </Link>
-                <button type="buton" className="bg-black text-white font-semibold text-base px-4 py-2 rounded-md">
+                <button type="buton" className="bg-primary text-white font-semibold text-base px-4 py-2 rounded-md">
                     Trailer
                 </button>
             </div>
