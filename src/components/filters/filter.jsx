@@ -7,7 +7,7 @@ function Filter({ children }) {
                 <ul className="flex gap-3 mx-auto justify-center">
                     { children }
                 </ul>
-                <hr class="w-5/6 h-1 mx-auto my-4 border-1 my-3 border-white rounded "></hr>
+                <hr className="w-5/6 h-1 mx-auto my-4 border-1 my-3 border-white rounded "></hr>
            </nav>;
 }
 

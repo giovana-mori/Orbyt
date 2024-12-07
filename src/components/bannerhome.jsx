@@ -14,7 +14,7 @@ export default function BannerHome(
 ) {
     return (
         <div className="h-screen bg-cover bg-center bg-no-repeat py-20" style={{ backgroundImage: `url(${imgpath})` }}>
-            <div className="container mx-auto">
+            <div className="container mx-auto px-4">
                 <div>
                     <PrevFilme titulo={title} genero={genero} descricao={description} nota={nota} />
                 </div>
