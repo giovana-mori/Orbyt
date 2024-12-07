@@ -1,9 +1,6 @@
-/* eslint-disable */
-
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Perfil from "./pages/perfil";
 import "./output.css";
@@ -22,13 +19,14 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="/" element={<Layout />}>
           <Route path="/perfil" element={<Perfil />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/registro" element={<Register/>} />
+          <Route path="/registro" element={<Register />} />
           <Route path="/configuracoes" element={<ConfigPerfil />} />
           <Route path="/filmes" element={<Filmes />} />
-          <Route path="/pesquisa" element={<Pesquisa />} /> {/*apenas teste*/}
+          <Route path="/pesquisa" element={<Pesquisa />} />
+          {/* apenas teste */}
           <Route path="/" element={<Home />} />
         </Route>
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

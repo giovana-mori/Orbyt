@@ -1,7 +1,6 @@
-/*eslint-disable*/
 import React, { useState } from 'react';
 
-const SingleSelect = ({ elements, title, onChange = () => {} }) => {
+function SingleSelect({ elements, title, onChange = () => {} }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedElement, setSelectedElement] = useState(null);
 
@@ -14,7 +13,7 @@ const SingleSelect = ({ elements, title, onChange = () => {} }) => {
   const toggleDropdown = () => setIsOpen(!isOpen);
 
   return (
-    <div className='flex items-center'>
+    <div className="flex items-center">
       <div className="relative w-44 max-w-xs">
         <button
           type="button"
@@ -48,6 +47,6 @@ const SingleSelect = ({ elements, title, onChange = () => {} }) => {
       </div>
     </div>
   );
-};
+}
 
 export default SingleSelect;

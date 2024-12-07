@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from "react";
 import Form from "../components/forms/form";
 import FormItem from "../components/forms/inputlabel";
@@ -26,11 +25,11 @@ export default function Login() {
                   type="password"
                 />
               </Form>
-              <a className="text-sm text-sky-500 hover:text-sky-600">
+              <a href="/" className="text-sm text-sky-500 hover:text-sky-600">
                 Esqueci minha senha
               </a>
               <div>
-              <button className="w-full text-white bg-black border border-white hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-white font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-black dark:hover:bg-gray-700 dark:focus:ring-white">Enviar</button>
+                <button type="submit" className="w-full text-white bg-black border border-white hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-white font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-black dark:hover:bg-gray-700 dark:focus:ring-white">Enviar</button>
               </div>
             </div>
             <div className="pt-5 text-base font-semibold leading-7">
