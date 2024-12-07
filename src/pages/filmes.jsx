@@ -1,21 +1,22 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import NavigationTitle from '../components/navigationtitle';
-import ItemFilme from '../components/itemfilme';
-import ContainerCard from '../components/containercard';
-import Filter from '../components/filters/filter';
-import Category from '../components/filters/category';
-import Streaming from '../components/filters/streaming';
-import Year from '../components/filters/year';
-import OrderBy from '../components/filters/orderby';
-import Review from '../components/filters/review';
-import MovieCatalog from '../components/categorycatalog';
-import API from '../utils/API';
+import React, { useCallback, useEffect, useState } from "react";
+import NavigationTitle from "../components/navigationtitle";
+import ItemFilme from "../components/itemfilme";
+import ContainerCard from "../components/containercard";
+import Filter from "../components/filters/filter";
+import Category from "../components/filters/category";
+import Streaming from "../components/filters/streaming";
+import Year from "../components/filters/year";
+import OrderBy from "../components/filters/orderby";
+import Review from "../components/filters/review";
+import MovieCatalog from "../components/categorycatalog";
+import API from "../utils/API";
 
 function Filmes() {
   const [movie, setMovie] = useState([]);
   const [loading] = useState(false);
+  // const { slug } = useParams();
   const FetchMovie = () => {
-    API.get('/Movies/populares').then((response) => {
+    API.get("/Movies/populares").then((response) => {
       if (response.data) {
         setMovie(
           response.data.results.map((movies) => ({
@@ -23,7 +24,6 @@ function Filmes() {
             key: `movie-${movies.id}`,
           })),
         );
-        console.log(response.data);
       }
     });
   };
@@ -70,7 +70,6 @@ function Filmes() {
             <p>Carregando filmes...</p>
           )}
         </MovieCatalog>
-
       </ContainerCard>
     </div>
   );

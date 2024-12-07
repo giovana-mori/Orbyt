@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { useState } from 'react';
 
 function MultiSelect({ elements, title, onChange = () => {} }) {

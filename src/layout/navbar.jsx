@@ -25,8 +25,8 @@ function Navbar() {
       <div className="container mx-auto flex items-center justify-between py-2">
         <Link to="/">
           <div className="flex items-center gap-1">
-            <img src="img/logo_nav.png" alt="Logo" className="h-20" />
-            <img src="img/text_svg_nav.svg" alt="Logo" className="w-32" />
+            <img src="/img/logo_nav.png" alt="Logo" className="h-20" />
+            <img src="/img/text_svg_nav.svg" alt="Logo" className="w-32" />
           </div>
         </Link>
         <div className="flex items-center mx-4 gap-2 flex-1 max-w-lg justify-center">
@@ -38,10 +38,10 @@ function Navbar() {
                 value={searchDetails.text}
                 onChange={changeHandler}
                 placeholder="Busca..."
-                className="w-full text-black text-base rounded-full py-0.5 pr-10 pl-2 bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full text-black text-base border-2 border-primary py-1.5 rounded-md pr-10 pl-2 bg-gray-200"
               />
               <svg
-                className="absolute top-2 right-1.5 w-3 h-3 text-gray-500"
+                className="absolute top-2 right-2 w-4 h-6 text-gray-500"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 20 20"
@@ -85,18 +85,12 @@ function Navbar() {
           ].map((item, index) => (
             <Link
               key={index}
-              to="/filmes"
+              to={`genero/${item}`}
               className="text-white font-normal hover:underline font-bebas leading-[normal] text-xl text-left tracking-wide"
             >
               {item}
             </Link>
           ))}
-          <Link
-            to="/registro"
-            className="text-white font-normal hover:underline font-bebas leading-[normal] text-2xl text-right"
-          >
-            CRIAR CONTA
-          </Link>
         </div>
       </div>
     </nav>

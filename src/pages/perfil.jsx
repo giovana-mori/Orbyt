@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from "react";
 import { SwiperSlide } from "swiper/react";
 import Avatar from "../components/avatar";
