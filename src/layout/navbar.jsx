@@ -19,29 +19,15 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-black py-2 shadow-md">
-      <div className="container mx-auto flex items-center justify-between">
+    <nav className="bg-black shadow-md">
+      <div className="container mx-auto flex items-center max-w-7xl justify-between py-2 px-4">
         <Link to="/">
           <div className="flex items-center gap-1">
-            <img
-              src="img/logo_nav.png"
-              alt="Logo"
-              className="h-20"
-            />
-            <img
-              src="img/text_svg_nav.svg"
-              alt="Logo"
-              className="w-24"
-            />
-            <Link
-              to="/filmes"
-              className="text-white font-normal hover:underline font-bebas leading-[normal] text-2xl text-left"
-            >
-              FILMES
-            </Link>
+            <img src="img/logo_nav.png" alt="Logo" className="h-20" />
+            <img src="img/text_svg_nav.svg" alt="Logo" className="w-32" />
           </div>
         </Link>
-        <div className="flex items-center mx-4 gap-2 flex-1 max-w-sm justify-center">
+        <div className="flex items-center mx-4 gap-2 flex-1 max-w-lg justify-center">
           <div className="relative w-full max-w-lg">
             <form onSubmit={submitHandler}>
               <input
@@ -73,10 +59,10 @@ function Navbar() {
         </div>
         <div className="flex space-x-6">
           <Link
-            to="/login"
-            className="text-white font-normal hover:underline font-bebas leading-[normal] text-2xl text-right"
+            to="login"
+            className="text-white font-bebas bg-primary hover:bg-opacity-35 font-medium rounded-lg  tracking-wider text-xl px-4 py-1 text-center"
           >
-            LOGIN
+            ENTRAR
           </Link>
           <Link
             to="/registro"
