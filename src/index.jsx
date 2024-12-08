@@ -11,6 +11,7 @@ import Home from "./pages/home";
 import Register from "./pages/register";
 import Pesquisa from "./pages/pesquisa";
 import Sobre from "./pages/sobre";
+import Comentarios from "./pages/comentarios";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -25,6 +26,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/genero/:slug" element={<Filmes />} />
           <Route path="/sobre/:slug" element={<Sobre />} />
           <Route path="/pesquisa" element={<Pesquisa />} />
+          <Route path="/comentarios" element={<Comentarios />} />
           {/* apenas teste */}
           <Route path="/" element={<Home />} />
         </Route>

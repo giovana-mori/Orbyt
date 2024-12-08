@@ -48,7 +48,7 @@ export default function PrevFilme({
       <div className="flex flex-row gap-2">
         {sobre && (
           <Link
-            to="/sobre"
+            to="/sobre/Openheimmer"
             className="bg-white text-black font-semibold text-base px-4 py-2 rounded-md"
           >
             Sobre

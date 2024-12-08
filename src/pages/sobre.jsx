@@ -6,6 +6,7 @@ import ContainerCard from "../components/containercard";
 import BannerSobre from "../components/bannersobre";
 import CarouselSlick from "../components/carousel";
 import ItemComentario from "../components/itemcomentario";
+import CommentForm from "../components/commentform";
 
 function Sobre() {
   //   const { slug } = useParams();
@@ -26,63 +27,26 @@ function Sobre() {
         <BannerSobre />
         <ContainerCard>
           <div className="flex flex-col gap-4">
-            <CarouselSlick title="COMENTÁRIOS">
-              <SwiperSlide className="w-full">
-                <ItemComentario />
-              </SwiperSlide>
-              <SwiperSlide className="w-full">
-                <ItemComentario />
-              </SwiperSlide>
-              <SwiperSlide className="w-full">
-                <ItemComentario />
-              </SwiperSlide>
-              <SwiperSlide className="w-full">
-                <ItemComentario />
-              </SwiperSlide>
+            <CarouselSlick title="COMENTÁRIOS" slidesPerView={3}>
+              {[1,2,3,4,5,6,7].map((item) => (
+                <SwiperSlide className="w-full" key={item}>
+                  <ItemComentario spoiler={false} logged={false} />
+                </SwiperSlide>
+              ))}
             </CarouselSlick>
             <hr className="my-4 border-white border-2" />
-            <CarouselSlick title="COMENTÁRIOS COM SPOILER">
-              <SwiperSlide className="w-full">
-                <ItemComentario />
-              </SwiperSlide>
-              <SwiperSlide className="w-full">
-                <ItemComentario />
-              </SwiperSlide>
-              <SwiperSlide className="w-full">
-                <ItemComentario />
-              </SwiperSlide>
-              <SwiperSlide className="w-full">
-                <ItemComentario />
-              </SwiperSlide>
+            <CarouselSlick title="COMENTÁRIOS COM SPOILER" slidesPerView={3}>
+              {[1,2,3,4,5,6,7].map((item) => (
+                <SwiperSlide className="w-full" key={item}>
+                  <ItemComentario spoiler={true} logged={false} />
+                </SwiperSlide>
+              ))}
             </CarouselSlick>
             <hr className="my-4 border-white border-2" />
             <h2 className="font-bebas text-4xl text-white">
               O QUE VOCE ACHOU?
             </h2>
-            <div className="bg-[#181818] rounded-md flex flex-col gap-3 my-2 p-3">
-              <div className="flex flex-row w-full items-center justify-center">
-                <img className="w-8" src="/img/star.svg" alt="" />
-                <img className="w-8" src="/img/star.svg" alt="" />
-                <img className="w-8" src="/img/star.svg" alt="" />
-                <img className="w-8" src="/img/star.svg" alt="" />
-                <img className="w-8" src="/img/star.svg" alt="" />
-              </div>
-              <textarea
-                name=""
-                id=""
-                className="w-full resize-none rounded-md bg-zinc-500 text-white min-h-40 text-xl p-3 font-bold"
-                placeholder="Escreva um comentário sobre"
-              />
-              <label htmlFor="?" className="text-white flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  name="spoiler"
-                  id="spoiler"
-                  className="size-5 bg-transparent"
-                />
-                Marcar comentário como spoiler
-              </label>
-            </div>
+            <CommentForm enableComment={false} />
             <hr className="my-4 border-white border-2" />
             <h2 className="font-bebas text-4xl text-white">
               INFORMACÕES DO FILME
