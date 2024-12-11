@@ -1,7 +1,7 @@
 ﻿using Pi3.Dtos;
 using Pi3.Models;
 
-namespace Pi3.Repositories.Service
+namespace Pi3.Interface
 {
     public interface IAvaliacaoService
     {
@@ -9,7 +9,7 @@ namespace Pi3.Repositories.Service
         Task<Avaliacao> GetReviewByIdAsync(string id);
         Task<List<Avaliacao>> GetReviewsByUserIdAsync(string jwt);
         Task<List<Avaliacao>> GetReviewsByFilmIdAsync(int idTmdb);
-        Task<List<Avaliacao>> GetReviewsByFilmIdSortedByLikesAsync (int idTmdb);        
+        Task<List<Avaliacao>> GetReviewsByFilmIdSortedByLikesAsync(int idTmdb);
         Task<bool> UpdateReviewAsync(string id, AvaliacaoUpdateDto updatedReview);
         Task<bool> Disable(string id, string cookie);
         Task<int> DisableIsActives(string[] ids);

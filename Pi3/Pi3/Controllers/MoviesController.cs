@@ -13,32 +13,59 @@ namespace Pi3.Controllers
             _tmdbService = tmdbService;
         }
 
-        [HttpGet("populares")]
-        public async Task<IActionResult> GetPopularMovies() =>
-            Ok(await _tmdbService.GetPopularMoviesAsync());
+        [HttpGet("category")]
+        public async Task<IActionResult> GetCategoryOfMovie([FromQuery] int page, [FromQuery] string category)
+        {
+            var movie = await _tmdbService.GetMovieByCategory(page, category);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+            return Ok(movie);
+        }
 
-        [HttpGet("em-cartaz")]
-        public async Task<IActionResult> GetNowPlayingMovies() =>
-            Ok(await _tmdbService.GetNowPlayingMoviesAsync());
+        [HttpGet("sorted")]
+        public async Task<IActionResult> GetMovieSorted(
+            [FromQuery] int page,
+            [FromQuery] int[]? genero,
+            [FromQuery] string? sortAno,
+            [FromQuery] bool? movieType)
+        {
+            
+            if (movieType != null && sortAno != null)
+            {
+                return BadRequest("Nao e possivel pesquisar por ano e por mais recente/antigo");
+            }
+            var movie = await _tmdbService.GetBySort(page, genero, sortAno, movieType);
+            if (movie == null)
+            {
+                return NotFound();
+            }
 
-        [HttpGet("lancamentos")]
-        public async Task<IActionResult> GetUpcomingMovies() =>
-            Ok(await _tmdbService.GetUpcomingMoviesAsync());
+            return Ok(movie);
+        }
 
-        [HttpGet("melhores-avaliados")]
-        public async Task<IActionResult> GetTopRatedMovies() =>
-            Ok(await _tmdbService.GetTopRatedMoviesAsync());
 
-        [HttpGet("tendencias/{timeWindow}")]
-        public async Task<IActionResult> GetTrendingMovies(string timeWindow) =>
-            Ok(await _tmdbService.GetTrendingMoviesAsync(timeWindow));
+        [HttpGet("pesquisar/{nome}")]
+        public async Task<IActionResult> SearchMovies([FromRoute] string nome)
+        {
+            var movie =await _tmdbService.SearchMoviesAsync(nome);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+            return Ok(movie);
+        }
 
-        [HttpGet("pesquisar")]
-        public async Task<IActionResult> SearchMovies([FromQuery] string nome) =>
-            Ok(await _tmdbService.SearchMoviesAsync(nome));
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetMovieDetails(int id) =>
-            Ok(await _tmdbService.GetMovieDetailsAsync(id));
+        [HttpGet("details/{id}")]
+        public async Task<IActionResult> GetMovieDetails(int id)
+        {
+            var movie = await _tmdbService.GetMovieDetailsAsync(id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+            return Ok(movie);
+        }
     }
 }

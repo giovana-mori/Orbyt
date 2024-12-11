@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Pi3.Dtos;
+using Pi3.Interface;
 using Pi3.Models;
-using Pi3.Repositories.Service;
 
 namespace Pi3.Controllers
 {
@@ -75,8 +75,8 @@ namespace Pi3.Controllers
             return BadRequest();
         }
 
-            [HttpDelete("disable-avaliacao/{id}")]
-        public async Task<IActionResult> DisableAvaliacao(string id)
+        [HttpDelete("disable-avaliacao/{id}")]
+        public async Task<IActionResult> DisableAvaliacao([FromRoute] string id)
         {
             if (Request.Cookies.TryGetValue("Jwt", out var cookie)) 
             {
@@ -109,17 +109,25 @@ namespace Pi3.Controllers
         }
 
         [HttpPut("like/{id}")]
-        public async Task<IActionResult> LikeReview(string id)
+        public async Task<IActionResult> LikeReview([FromRoute] string id)
         {
             var success = await _avaliacaoService.LikeReviewAsync(id);
-            return success ? NoContent() : NotFound("Avaliação não encontrada.");
+            if (success)
+            {
+                return NoContent();
+            }
+            return NotFound("Avaliação não encontrada.");
         }
 
-        [HttpPut("dislike{id}")]
-        public async Task<IActionResult> DislikeReview(string id)
+        [HttpPut("dislike/{id}")]
+        public async Task<IActionResult> DislikeReview([FromRoute] string id)
         {
             var success = await _avaliacaoService.DislikeReviewAsync(id);
-            return success ? NoContent() : NotFound("Avaliação não encontrada.");
+            if (success)
+            {
+                return NoContent();
+            }
+            return NotFound("Avaliação não encontrada.");
         }
 
         [ApiExplorerSettings(IgnoreApi = true)]

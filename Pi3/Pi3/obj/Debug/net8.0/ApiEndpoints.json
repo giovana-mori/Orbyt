@@ -123,7 +123,7 @@
   {
     "ContainingType": "Pi3.Controllers.AvaliacaoController",
     "Method": "DislikeReview",
-    "RelativePath": "api/Avaliacao/dislike{id}",
+    "RelativePath": "api/Avaliacao/dislike/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -324,8 +324,29 @@
   },
   {
     "ContainingType": "Pi3.Controllers.MoviesController",
+    "Method": "GetCategoryOfMovie",
+    "RelativePath": "api/Movies/category",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "category",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Pi3.Controllers.MoviesController",
     "Method": "GetMovieDetails",
-    "RelativePath": "api/Movies/{id}",
+    "RelativePath": "api/Movies/details/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -340,38 +361,8 @@
   },
   {
     "ContainingType": "Pi3.Controllers.MoviesController",
-    "Method": "GetNowPlayingMovies",
-    "RelativePath": "api/Movies/em-cartaz",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Pi3.Controllers.MoviesController",
-    "Method": "GetUpcomingMovies",
-    "RelativePath": "api/Movies/lancamentos",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Pi3.Controllers.MoviesController",
-    "Method": "GetTopRatedMovies",
-    "RelativePath": "api/Movies/melhores-avaliados",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Pi3.Controllers.MoviesController",
     "Method": "SearchMovies",
-    "RelativePath": "api/Movies/pesquisar",
+    "RelativePath": "api/Movies/pesquisar/{nome}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -379,33 +370,38 @@
       {
         "Name": "nome",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
     "ContainingType": "Pi3.Controllers.MoviesController",
-    "Method": "GetPopularMovies",
-    "RelativePath": "api/Movies/populares",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Pi3.Controllers.MoviesController",
-    "Method": "GetTrendingMovies",
-    "RelativePath": "api/Movies/tendencias/{timeWindow}",
+    "Method": "GetMovieSorted",
+    "RelativePath": "api/Movies/sorted",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "timeWindow",
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "genero",
+        "Type": "System.Int32[]",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortAno",
         "Type": "System.String",
-        "IsRequired": true
+        "IsRequired": false
+      },
+      {
+        "Name": "movieType",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

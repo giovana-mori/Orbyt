@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Pi3.Filter;
+using Pi3.Interface;
 using Pi3.Models;
 using Pi3.Repositories;
-using Pi3.Repositories.Service;
 using Pi3.Security;
 using Pi3.Service;
 using System.Text.Json.Serialization;
@@ -118,7 +118,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("Allowed", policy =>
     {
         policy.AllowAnyHeader()
-        .WithOrigins("http://localhost:3000")
+        .WithOrigins("http://localhost:30000")
         .AllowCredentials()
         .AllowAnyMethod();
     });
