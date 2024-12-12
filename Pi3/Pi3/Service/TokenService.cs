@@ -35,6 +35,7 @@ namespace Pi3.Service
                 {
                     new Claim(ClaimTypes.NameIdentifier, usuario.Id),
                     new Claim(ClaimTypes.Role, usuario.Role),
+                    new Claim(ClaimTypes.Name, usuario.Nome),
                     new Claim(ClaimTypes.Email, usuario.Email)
                 }),
                 IssuedAt = DateTime.UtcNow,

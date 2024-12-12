@@ -24,7 +24,7 @@ namespace Pi3.Controllers
 
 
         [HttpPost("login")]
-        public async Task<ActionResult> Login([FromForm] LoginDto login)
+        public async Task<ActionResult> Login([FromBody] LoginDto login)
         {
             var usuario = await _usuarioService.GetByEmail(login.Email);
 
@@ -47,7 +47,7 @@ namespace Pi3.Controllers
                     Response.Cookies.Append("RefreshToken", refresh, cookie);
                     Response.Cookies.Append("Jwt", token, cookie);
 
-                    return NoContent();
+                    return Ok(usuario);
                 }
                 return Unauthorized("Confirme email para entrar");
             }
@@ -55,7 +55,7 @@ namespace Pi3.Controllers
         }
 
         [HttpPost("password-reset")]
-        public async Task<IActionResult> EsqueceuSenha([FromForm] string email)
+        public async Task<IActionResult> EsqueceuSenha([FromBody] string email)
         {
             var tryEmail = await _usuarioService.GetByEmail(email);
 

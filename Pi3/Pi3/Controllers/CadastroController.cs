@@ -22,13 +22,12 @@ namespace Pi3.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Cadastro([FromForm] UsuarioDto usuarioDto, [FromForm] IFormFile? imagem)
+        public async Task<ActionResult> Cadastro([FromBody] UsuarioDto usuarioDto)
         {
-            if (imagem == null || imagem.Length == 0)
-            {
+            
                 var caminhoImagemPadrao = Path.Combine(Directory.GetCurrentDirectory(), "img/default-user.png");
-
-                imagem = new FormFile
+                
+                var imagem = new FormFile
                 (
                     baseStream: new FileStream(caminhoImagemPadrao, FileMode.Open, FileAccess.Read),
                     baseStreamOffset: 0,
@@ -36,7 +35,7 @@ namespace Pi3.Controllers
                     name: "defaultImage",
                     fileName: "default.jpg"
                 );
-            }
+            
 
             var tryCadastro = await _usuarioService.GetByEmail(usuarioDto.Email);
 

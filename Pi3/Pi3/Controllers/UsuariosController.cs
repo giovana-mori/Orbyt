@@ -96,7 +96,7 @@ namespace Pi3.Controllers
         }
 
         [HttpPost("favorite")]
-        public async Task<IActionResult> AddToFavorite([FromForm] WatchFavoriteDto watchFavorite)
+        public async Task<IActionResult> AddToFavorite([FromBody] WatchFavoriteDto watchFavorite)
         {
             Request.Cookies.TryGetValue("Jwt", out var cookie);
             if (cookie != null)
