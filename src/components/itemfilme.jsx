@@ -33,7 +33,7 @@ function ItemFilme({
         </span>
       </div>
       <div>
-        <BtnWatchlist addOrDelete />
+        <BtnWatchlist addOrDelete title={titulo} id={id} onClick={handleFavouriteClick} />
       </div>
     </div>
   );

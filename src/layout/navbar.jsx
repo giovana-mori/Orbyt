@@ -12,7 +12,6 @@ function Navbar() {
     API.get(`/Usuarios/${userId}`).then((response) => setUsers({ ...response.data, key: `user-${response.data.id}` }));
   };
   const [search, setSearch] = useState(null);
-  console.log(users);
   const changeHandler = (e) => {
     if (searchDetails != null) {
       const { name, value } = e.target;

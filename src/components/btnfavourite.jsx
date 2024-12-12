@@ -13,7 +13,7 @@ function BtnFavourite({
     IdTmdb: id,
   };
   const favoriteMovie = () => {
-    API.post('/Usuarios/favorite', watchFavorite).then((response) => { alert("filme favoritado"); }).catch((error) => { console.log(error.response.data); });
+    API.post('/Usuarios/favorite', watchFavorite).then(() => { alert("filme favoritado"); }).catch((error) => { console.log(error.response.data); });
   };
   return (
     <button

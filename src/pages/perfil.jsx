@@ -7,17 +7,26 @@ import CarouselSlick from "../components/carousel";
 import ItemComentario from "../components/itemcomentario";
 import ItemFilme from "../components/itemfilme";
 import NavigationTitle from "../components/navigationtitle";
-import { useAuth } from "../utils/authContext";
 import API from "../utils/API";
 
+const user = {
+  watchList: [],
+  favorite: [],
+};
 function Perfil() {
-  const { user } = useAuth();
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState(user);
+
   const userId = localStorage.getItem("user");
   const fetchUsers = () => {
-    API.get(`/Usuarios/${userId}`).then((response) => setUsers({ ...response.data, key: `user-${response.data.id}` }));
+    API.get(`/Usuarios/${userId}`).then((response) => { setUsers({ ...response.data, key: `user-${response.data.id}` }); });
   };
-  useEffect(() => { fetchUsers(); }, []);
+  useEffect(() => {
+    if (users.favorite && Array.isArray(users.favorite)) {
+      console.log(users.favorite[0]);
+    }
+    fetchUsers();
+  }, []);
+  console.log(users);
 
   return (
     <div>
@@ -47,12 +56,11 @@ function Perfil() {
             </CarouselSlick>
             <hr className="my-4 border-white border-2" />
             <CarouselSlick title="FILMES FAVORITOS" slidesPerView={3}>
-              {users.favorite.map((movies) => (
-                <SwiperSlide className="w-full">
+              {users.favorite.map((movies, index) => (
+                <SwiperSlide key={movies.idTmbd} className="w-full">
                   <ItemFilme
-                    key={movies.nomeFilme}
-                    id={movies.idTmdb}
-                    imagem={movies.poster_path}
+                    key={movies.idTmbd + index}
+                    id={movies.idTmbd}
                     titulo={movies.nomeFilme}
                   />
                 </SwiperSlide>
@@ -60,18 +68,15 @@ function Perfil() {
             </CarouselSlick>
             <hr className="my-4 border-white border-2" />
             <CarouselSlick title="QUERO ASSISTIR" slidesPerView={3}>
-              <SwiperSlide className="w-full">
-                <ItemFilme />
-              </SwiperSlide>
-              <SwiperSlide className="w-full">
-                <ItemFilme />
-              </SwiperSlide>
-              <SwiperSlide className="w-full">
-                <ItemFilme />
-              </SwiperSlide>
-              <SwiperSlide className="w-full">
-                <ItemFilme />
-              </SwiperSlide>
+              {users.watchList.map((movies, index) => (
+                <SwiperSlide key={movies.idTmbd} className="w-full">
+                  <ItemFilme
+                    key={movies.idTmbd + index}
+                    id={movies.idTmbd}
+                    titulo={movies.nomeFilme}
+                  />
+                </SwiperSlide>
+              ))}
             </CarouselSlick>
           </div>
         </div>

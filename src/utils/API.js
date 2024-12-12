@@ -8,7 +8,7 @@ API.interceptors.response.use(
     if (error.response.status === 401 && !originalRequest.retry) {
       originalRequest.retry = true;
       try {
-        await axios.post('/api/auth/refresh', null, {
+        await axios.post('/auth/refresh', null, {
           withCredentials: true,
           headers: {
             'Content-Type': 'application/json',
