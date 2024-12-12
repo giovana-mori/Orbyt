@@ -1,13 +1,12 @@
-/* eslint-disable */
 import React from "react";
 import { Link } from "react-router-dom";
 import BtnFavourite from "./btnfavourite";
 
 export default function PrevFilme({
-  titulo = "Titulo do filme",
-  descricao = "Descrição do filme",
-  genero = [],
-  nota = 5,
+  titulo,
+  descricao,
+  genero,
+  nota,
   sobre = true,
 }) {
   return (
@@ -48,14 +47,15 @@ export default function PrevFilme({
       <div className="flex flex-row gap-2">
         {sobre && (
           <Link
-            to="/sobre/Openheimmer"
+            to="/sobre/872585"
             className="bg-white text-black font-semibold text-base px-4 py-2 rounded-md"
+            state={{ idFilme: 872585 }}
           >
             Sobre
           </Link>
         )}
         <button
-          type="buton"
+          type="button"
           className="bg-primary text-white font-semibold text-base px-4 py-2 rounded-md flex items-center gap-2"
         >
           <svg

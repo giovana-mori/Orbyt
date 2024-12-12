@@ -1,8 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Form from "../components/forms/form";
 import FormItem from "../components/forms/inputlabel";
+import API from "../utils/API";
 
 export default function Login() {
+  const navigation = useNavigate();
+  const [formData, setFormData] = useState({
+    Password: "",
+    Email: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const login = () => {
+    API.post('/auth/login', { ...formData }).then((response) => { navigation("/"); localStorage.setItem("user", response.data.id); });
+  };
+  const handleSubmit = () => {
+    login();
+  };
   return (
     <div className="bg-black-50 relative flex min-h-screen overflow-hidden bg-black">
       <img
@@ -15,21 +37,22 @@ export default function Login() {
         <div className="mx-auto max-w-md">
           <h1 className="flex justify-start text-3xl text-white">Login</h1>
           <div className="divide-y-2 divide-gray-300/50">
-            <div className="space-y-6 py-8 text-base leading-7 text-white">
+            <div className="space-y-6 py-8 text-base leading-7 text-white" onChange={handleChange}>
               <Form>
-                <FormItem label="Usuario" name="user" id="user" />
+                <FormItem label="Email" name="Email" id="user" type="email" value={formData.Email} />
                 <FormItem
                   label="Senha"
-                  name="password"
+                  name="Password"
                   id="password"
                   type="password"
+                  value={formData.Password}
                 />
               </Form>
               <a href="/" className="text-sm text-sky-500 hover:text-sky-600">
                 Esqueci minha senha
               </a>
               <div>
-                <button type="submit" className="w-full text-white bg-black border border-white hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-white font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-black dark:hover:bg-gray-700 dark:focus:ring-white">Enviar</button>
+                <button onClick={() => { handleSubmit(); }} type="submit" className="w-full text-white bg-black border border-white hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-white font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-black dark:hover:bg-gray-700 dark:focus:ring-white">Enviar</button>
               </div>
             </div>
             <div className="pt-5 text-base font-semibold leading-7">

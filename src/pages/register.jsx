@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Form from "../components/forms/form";
 import FormItem from "../components/forms/inputlabel";
+import API from "../utils/API";
 
 export default function Register() {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    Nome: "",
+    Password: "",
+    Email: "",
+    Celular: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const createAccount = () => {
+    API.post('/Cadastro', { ...formData }).then(
+      () => { navigate("/login"); },
+    );
+  };
+
+  const handleSubmit = () => {
+    createAccount();
+  };
   return (
     <div className="bg-black-50 relative flex min-h-screen overflow-hidden bg-black">
       <img
@@ -15,15 +42,18 @@ export default function Register() {
         <div className="mx-auto max-w-md">
           <h1 className="flex justify-start text-3xl text-white">Cadastro</h1>
           <div className="divide-y-2 divide-gray-300/50">
-            <div className="space-y-6 py-8 text-base leading-7 text-white">
+            <div className="space-y-6 py-8 text-base leading-7 text-white" onChange={handleChange}>
               <Form>
-                <FormItem label="Nome" name="name" id="name" />
-                <FormItem label="Email" name="email" id="email" type="email" />
+                <FormItem label="Nome" name="Nome" id="name" value={formData.Nome} />
+                <FormItem label="Email" name="Email" id="email" type="email" value={formData.Email} />
+                <FormItem label="Celular" name="Celular" id="celphone" type="number" value={formData.Celular} />
+
                 <FormItem
                   label="Senha"
-                  name="password"
+                  name="Password"
                   id="password"
                   type="password"
+                  value={formData.Password}
                 />
                 <FormItem
                   label="Confirmar Senha"
@@ -33,7 +63,7 @@ export default function Register() {
                 />
               </Form>
               <div>
-                <button type="submit" className="w-full text-white bg-black border border-white hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-white font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-black dark:hover:bg-gray-700 dark:focus:ring-white">Enviar</button>
+                <button type="submit" onClick={() => handleSubmit()} className="w-full text-white bg-black border border-white hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-white font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-black dark:hover:bg-gray-700 dark:focus:ring-white">Enviar</button>
               </div>
             </div>
             <div className="pt-5 text-base font-semibold leading-7">

@@ -1,12 +1,18 @@
-/* eslint-disable */
-
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
+import { useAuth } from "../utils/authContext";
+import API from "../utils/API";
 
 function Navbar() {
   const [searchDetails, setSearchDetails] = useState({ text: "" });
+  const { user } = useAuth();
+  const [users, setUsers] = useState([]);
+  const userId = localStorage.getItem("user");
+  const fetchUsers = () => {
+    API.get(`/Usuarios/${userId}`).then((response) => setUsers({ ...response.data, key: `user-${response.data.id}` }));
+  };
   const [search, setSearch] = useState(null);
-
+  console.log(users);
   const changeHandler = (e) => {
     if (searchDetails != null) {
       const { name, value } = e.target;
@@ -19,7 +25,7 @@ function Navbar() {
       setSearch(searchDetails);
     }
   };
-
+  useEffect(() => { fetchUsers(); }, []);
   return (
     <nav className="bg-black shadow-md">
       <div className="container mx-auto flex items-center justify-between py-2">
@@ -60,35 +66,46 @@ function Navbar() {
           </div>
         </div>
         <div className="flex space-x-6">
-          <Link
-            to="login"
-            className="text-white transition-all font-bebas bg-primary hover:bg-opacity-35 font-medium rounded-lg  tracking-wider text-xl px-4 py-1 text-center"
-          >
-            ENTRAR
-          </Link>
+          {user ? (
+            <Link
+              to="/login"
+              className="text-white transition-all font-bebas bg-primary hover:bg-opacity-35 font-medium rounded-lg  tracking-wider text-xl px-4 py-1 text-center"
+            >
+              ENTRAR
+            </Link>
+          ) : <Link className="text-white" to="/perfil">{users.nome}</Link> }
         </div>
       </div>
       <div className="bg-[#5e52aa33]">
         <div className="container mx-auto flex items-center justify-evenly gap-[2%] py-2">
           {[
-            "LANÇAMENTOS",
-            "AVENTURA",
-            "AÇÃO",
-            "DRAMA",
-            "COMÉDIA",
-            "FICÇÃO CIENTÍFICA",
-            "MUSICAL",
-            "ROMANCE",
-            "TERROR",
-            "ANIMAÇÃO",
-            "DOCUMENTÁRIO",
-          ].map((item, index) => (
+            {
+              key: React.key,
+              label: "POPULARES",
+              value: "popular",
+            },
+            {
+              key: React.key,
+              label: "EM-CARTAZ",
+              value: "now_playing",
+            },
+            {
+              key: React.key,
+              label: "LANÇAMENTOS",
+              value: "upcoming",
+            },
+            {
+              key: React.key,
+              label: "MELHOR-AVALIADOS",
+              value: "top_rated",
+            },
+          ].map((label, value, key) => (
             <Link
-              key={index}
-              to={`genero/${item}`}
+              key={key}
+              to={`genero/${label.value}`}
               className="text-white font-normal hover:underline font-bebas leading-[normal] text-xl text-left tracking-wide"
             >
-              {item}
+              {label.label}
             </Link>
           ))}
         </div>

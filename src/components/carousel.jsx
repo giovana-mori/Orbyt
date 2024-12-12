@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import React from "react";
-import { Swiper } from "swiper/react"; /* o que é esse swiper? */
+import { Swiper } from "swiper/react"; 
 import "swiper/swiper-bundle.css";
 import { Navigation } from "swiper/modules";
 import { Link } from "react-router-dom";
@@ -21,7 +21,6 @@ function CarouselSlick({ title, link, slidesPerView = 2, children }) {
         )}
         <div></div>
       </div>
-      {/* Usem menos chatgpt please */}
       <Swiper
         spaceBetween={10}
         slidesPerView={slidesPerView}

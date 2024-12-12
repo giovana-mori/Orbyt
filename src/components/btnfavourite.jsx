@@ -1,16 +1,27 @@
 import React, { useState } from "react";
+import API from "../utils/API";
 
-function BtnFavourite({ active = false }) {
+function BtnFavourite({
+  active = false, onClick, id, title,
+}) {
   const [isActive, setIsActive] = useState(active);
   const handleClick = () => {
     setIsActive(!isActive);
+  };
+  const watchFavorite = {
+    NomeFilme: title,
+    IdTmdb: id,
+  };
+  const favoriteMovie = () => {
+    API.post('/Usuarios/favorite', watchFavorite).then((response) => { alert("filme favoritado"); }).catch((error) => { console.log(error.response.data); });
   };
   return (
     <button
       type="button"
       className="p-2 z-10 bg-white rounded-full"
-      onClick={() => {
-        handleClick();
+      onClick={(e) => {
+        e.stopPropagation();
+        if (onClick) { handleClick(); favoriteMovie(); }
       }}
     >
       <svg

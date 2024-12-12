@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import NavigationTitle from "../components/navigationtitle";
 import ItemFilme from "../components/itemfilme";
 import ContainerCard from "../components/containercard";
@@ -14,9 +15,9 @@ import API from "../utils/API";
 function Filmes() {
   const [movie, setMovie] = useState([]);
   const [loading] = useState(false);
-  // const { slug } = useParams();
-  const FetchMovie = () => {
-    API.get("/Movies/populares").then((response) => {
+  const slug = useParams();
+  const FetchMovie = useCallback(() => {
+    API.get(`/Movies/category?page=1&category=${slug.slug}`).then((response) => {
       if (response.data) {
         setMovie(
           response.data.results.map((movies) => ({
@@ -26,7 +27,7 @@ function Filmes() {
         );
       }
     });
-  };
+  }, [slug]);
 
   const handleScroll = useCallback(() => {
     if (
@@ -35,7 +36,7 @@ function Filmes() {
     ) {
       FetchMovie();
     }
-  }, []);
+  }, [FetchMovie]);
 
   useEffect(() => {
     if (movie.length === 0) {
@@ -43,8 +44,8 @@ function Filmes() {
     }
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [loading]);
-
+  }, [loading, FetchMovie]);
+  useEffect(() => { FetchMovie(); }, [FetchMovie]);
   return (
     <div>
       <ContainerCard>
@@ -61,6 +62,7 @@ function Filmes() {
             movie.map((item) => (
               <ItemFilme
                 key={item.id}
+                id={item.id}
                 titulo={item.title}
                 imagem={item.poster_path}
                 nota={item.vote_average}
