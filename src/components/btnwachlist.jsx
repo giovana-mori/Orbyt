@@ -9,7 +9,7 @@ function BtnWatchlist({
     IdTmdb: id,
   };
   const favoriteMovie = () => {
-    API.post('/Usuarios/whatch-list', watchFavorite).then(() => { alert("filme favoritado"); }).catch((error) => { console.log(error.response.data); });
+    API.post('/Usuarios/watch-list', watchFavorite).then(() => { alert("filme favoritado"); }).catch((error) => { console.log(error.response.data); });
   };
   return (
     <div>

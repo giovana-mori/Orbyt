@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Form from "./forms/form";
+import InputLabel from "./forms/inputlabel";
 
-export default function CommentForm({ enableComment = false }) {
-  if (!enableComment) {
+export default function CommentForm({ user }) {
+  if (user == null) {
     return (
       <div className="bg-[#181818] rounded-md flex flex-col items-center justify-center gap-3 my-2 p-3 min-h-28">
         <Link
