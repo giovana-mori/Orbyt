@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { SwiperSlide } from "swiper/react";
 import { Link, useLocation } from "react-router-dom";
+import { comment } from "postcss";
 import ContainerCard from "../components/containercard";
 import BannerSobre from "../components/bannersobre";
 import CarouselSlick from "../components/carousel";
@@ -13,14 +14,13 @@ function Sobre() {
   const [movieDetails, setMovieDetails] = useState([]);
   const location = useLocation();
   const filmeDetailId = location.state;
+  const createPost = {
+    idFilme: filmeDetailId.idFilme,
+    comment: "",
+    nota: 0,
+    spoiler: false,
+  };
   const { user } = useAuth();
-  const [formData, setFormData] = useState({
-    Nome: "",
-    Password: "",
-    Email: "",
-    Celular: "",
-  });
-
   const fetechMoviesId = () => {
     if (filmeDetailId.idFilme == null) {
       API.get(`Movies/details/${filmeDetailId}`).then((response) => {
@@ -35,6 +35,30 @@ function Sobre() {
         }
       });
     }
+  };
+  const [formData, setFormData] = useState({
+    spoiler: false,
+    comentario: "",
+  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const createComment = () => {
+    API.post('Avaliacao/criar-avaliacao', {
+      ...createPost,
+      idFilme: filmeDetailId.idFilme,
+      comment: formData.comentario,
+      nota: 0,
+      spoiler: formData.spoiler,
+    }).then(console.log("X"));
+  };
+  const handleSubmit = () => {
+    createComment();
   };
   useEffect(() => {
     fetechMoviesId();
@@ -92,7 +116,7 @@ function Sobre() {
               </div>
             ) : (
               <form>
-                <div className="bg-[#181818] rounded-md flex flex-col gap-3 my-2 p-3">
+                <div className="bg-[#181818] rounded-md flex flex-col gap-3 my-2 p-3" onChange={handleChange}>
                   <div className="flex flex-row w-full items-center justify-center">
                     <img className="w-8" src="/img/star.svg" alt="" />
                     <img className="w-8" src="/img/star.svg" alt="" />
@@ -101,22 +125,23 @@ function Sobre() {
                     <img className="w-8" src="/img/star.svg" alt="" />
                   </div>
                   <textarea
-                    value="comentario"
+                    value={formData.comentario}
                     name="comentario"
-                    id=""
+                    id="comentario"
                     className="w-full resize-none rounded-md bg-zinc-500 text-white min-h-40 text-xl p-3 font-bold"
                     placeholder="Escreva um comentário sobre"
                   />
                   <label htmlFor="?" className="text-white flex items-center gap-2">
                     <input
                       type="checkbox"
+                      value={formData.spoiler}
                       name="spoiler"
                       id="spoiler"
                       className="size-5 bg-transparent"
                     />
                     Marcar comentário como spoiler
                   </label>
-                  <button type="submit" className="text-white">COMENTAR</button>
+                  <button onClick={() => handleSubmit()} type="submit" className="text-white">COMENTAR</button>
 
                 </div>
               </form>
